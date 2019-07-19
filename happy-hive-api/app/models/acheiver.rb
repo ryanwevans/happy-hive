@@ -1,0 +1,2 @@
+class Acheiver < ApplicationRecord
+end
