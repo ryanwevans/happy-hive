@@ -14,7 +14,7 @@ class Chores extends Component {
     
     render() {
         return (
-            <div>
+            <div className="ChoreCardContainer">
                 <h2>Chores</h2>
                 { this.props.chores.map(chore => 
                     <ChoreCard key={chore.id} chore={chore}/>
