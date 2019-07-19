@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getChores } from '../actions/Chores';
 
 class Chores extends Component {
 
     componentDidMount() {
-        return fetch('http://localhost:3001/api/chores')
-        .then(resp => resp.json())
-        .then(choresData => {
-            return choresData
-        })
-        .catch(error => console.log(error))
+        this.props.getChores();
     }
     
     render() {
@@ -20,4 +17,4 @@ class Chores extends Component {
     };
 }
 
-export default Chores;
+export default connect(null, { getChores })(Chores);
