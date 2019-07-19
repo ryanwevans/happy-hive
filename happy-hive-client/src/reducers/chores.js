@@ -1,6 +1,6 @@
 const choresReducer = (
-    state = []
-    , action) => {
+    state = [], 
+    action) => {
         switch(action.type) {
 
             case 'FETCH_CHORES':

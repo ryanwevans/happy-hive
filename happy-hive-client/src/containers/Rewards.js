@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { getRewards } from '../actions/rewards';
+import RewardCard from '../components/RewardCard';
+
 
 class Rewards extends Component {
 
     componentDidMount() {
-        return fetch('http://localhost:3001/api/rewards')
-        .then(resp => resp.json())
-        .then(rewardsData => {
-            console.log(rewardsData)
-        })
-        .catch(error => console.log(error))
-    }
+        this.props.getRewards()
+    };
     
     render() {
         return (
-            <div>
+            <div className="RewardCardContainer">
                 <h2>Rewards</h2>
+                {this.props.rewards.map(reward => 
+                <RewardCard key={reward.id} reward={reward} />
+                )}
             </div>
         )
     };
 }
 
-export default Rewards;
+const mapStateToProps = state => {
+    return ({
+        rewards: state.rewards
+    })
+}
+
+export default connect(mapStateToProps, { getRewards })(Rewards);
