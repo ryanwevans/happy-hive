@@ -38,7 +38,7 @@ class Api::RewardsController < ApplicationController
     private
 
     def set_reward
-        @reward = reward.find_by(id: params[:id])
+        @reward = Reward.find_by(id: params[:id])
     end
 
     def reward_params
