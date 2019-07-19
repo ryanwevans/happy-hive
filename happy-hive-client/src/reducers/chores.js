@@ -4,7 +4,7 @@ const choresReducer = (
         switch(action.type) {
 
             case 'FETCH_CHORES':
-                return action.chores;
+                return state.concat(action.chores);
 
             default:
                 return state;
