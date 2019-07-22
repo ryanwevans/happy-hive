@@ -1,15 +1,17 @@
-const choresReducer = (
-    state = [], 
-    action) => {
-        switch(action.type) {
+const choresReducer = (state = [], action) => {
+        
+    switch(action.type) {
 
-            case 'FETCH_CHORES':
-                return state.concat(action.chores);
+        case 'FETCH_CHORES':
+            return action.chores;
 
-            default:
-                return state;
+        case 'ADD_CHORE':
+            return state.concat(action.chores);
 
-        }
+        default:
+            return state;
+
+    }
 }
 
 export default choresReducer;

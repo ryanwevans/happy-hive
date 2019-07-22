@@ -1,11 +1,13 @@
 .RewardCardContainer {
     padding: 16px;
+    color: rgba(53, 58, 57, 0.897);
 }
 
 .RewardCard {
     float: left;
     margin: 1%;
-    background: whitesmoke;
+    background: rgb(54, 58, 63);
+    color: rgba(232, 233, 227, 0.897);
     width: 45%;
     height: 200px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

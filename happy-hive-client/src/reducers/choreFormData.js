@@ -1,0 +1,24 @@
+const initialState = {
+    name: '',
+    description: '',
+    points_value: 0,
+    assigned_to: '',
+    complete: false
+}
+
+const choreFormDataReducer = (state = initialState, action) => {
+    
+    switch(action.type) {
+
+        case 'UPDATED_FORM_DATA':
+            return action.choreFormData;
+
+        case 'RESET_FORM_DATA':
+            return initialState;
+
+        default:
+            return state;
+    }
+}
+
+export default choreFormDataReducer;

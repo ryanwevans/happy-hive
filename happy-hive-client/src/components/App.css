@@ -1,11 +1,22 @@
 .App {
+  /* background: url('./images/hexagon.svg');
+  opacity: 0.9; */
+  /* background-repeat: repeat; */
+  background-color: #7af0ea;
   text-align: center;
+  color: rgba(53, 58, 57, 0.897);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#App::after {
+  background: url('./images/hexagon.svg');
+  opacity: 0.9;
+  /* content: ""; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;  
 }
 
 .App-header {
@@ -16,11 +27,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgba(53, 58, 57, 0.897);
 }
 
 .App-link {
-  color: #61dafb;
+  color: rgba(232, 233, 227, 0.897);
 }
 
 .grid {
@@ -28,6 +39,12 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
+
 .span-col-2 {
   grid-column: span 2 / auto;
+}
+
+.mr-auto a {
+  color: rgba(232, 233, 227, 0.897);
+  text-decoration: none;
 }
