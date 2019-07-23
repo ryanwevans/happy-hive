@@ -4,19 +4,15 @@ import { connect } from 'react-redux';
 class Chore extends Component {
     
     render() {
-        const chore = this.props.chores.find( chore => chore.id === this.props.match.params.id)
-        console.log(this.props.match.params.id)
-        console.log(this.props.chores)
+        console.log(this.props)
+        const { chore } = this.props
         return(
-            <div>Chore {chore}</div>
+            <div>
+                <h3>{chore.name}</h3>
+                <p>{chore.description}</p>
+            </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return ({
-        chores: state.chores
-    })
-}
-
-export default connect(mapStateToProps)(Chore);
+export default Chore;
