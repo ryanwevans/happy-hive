@@ -9,9 +9,10 @@ const NavBar = () => {
             <Navbar.Brand href="/">Happy Hive</Navbar.Brand>
             <Navbar className="mr-auto">
                 {/* <NavLink style={{ marginRight: '10px' }} to='/'>Home</NavLink> */}
-                <NavLink style={{ marginRight: '10px' }} to='/chores'>Chores</NavLink>
-                {/* <NavLink style={{ marginRight: '10px' }} to='/chores/new'>Add Chore</NavLink> */}
-                <NavLink style={{ marginRight: '10px' }} to='/rewards'>Rewards</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/chores/new'>Add Chore</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
             </Navbar>
         </Navbar>
     )

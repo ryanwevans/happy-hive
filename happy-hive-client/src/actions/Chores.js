@@ -17,6 +17,13 @@ const addChore = chore => {
     }
 }
 
+const updateChore = chore => {
+    return {
+        type: 'UPDATE_CHORE',
+        chore
+    }
+}
+
 // ** Async Actions **
 export const getChores = () => {
     return dispatch => {
@@ -42,6 +49,23 @@ export const createChore = chore => {
             dispatch(resetChoreFormData())
         })
         
+        .catch(error => console.log(error))
+    }
+}
+
+export const editChore = chore => {
+    return dispatch => {
+        return fetch(`${API_URL}/chores/${chore.id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ chore })
+        })
+        .then(response => response.json())
+        .then(chore => {
+            dispatch(updateChore(chore))
+        })
         .catch(error => console.log(error))
     }
 }

@@ -18,10 +18,12 @@ class RewardForm extends Component {
     } 
     
     render() {
-        const { name, description, value, claimed_by, claimed } = this.props.rewardFormData 
+        const { name, description, value, claimed, claimed_by } = this.props.rewardFormData 
         return (
             <div>
-                Add a New Reward
+                <div className="RewardFormContainer">
+                <br/>
+                <h2>Add a New Reward</h2>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label htmlFor="name">Reward Name: </label>
@@ -36,14 +38,15 @@ class RewardForm extends Component {
                         <input type="text" name="value" value={value} onChange={this.handleOnChange} />
                     </div>
                     <div>
+                        <input type="hidden" name="claimed" value={claimed} />
+                    </div>
+                    <div>
                         <label htmlFor="claimed_by">Claimed By: </label>
                         <input type="text" name="claimed_by" value={claimed_by} onChange={this.handleOnChange} />
                     </div>
-                    <div>
-                        <input type="hidden" name="claimed" value={claimed} />
-                    </div>
                     <button type="submit">Add Reward</button>
                 </form>
+                </div>
             </div>
         )
     }

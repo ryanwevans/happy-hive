@@ -13,11 +13,17 @@ class Rewards extends Component {
     
     render() {
         return (
-            <div className="RewardCardContainer">
-                <h2>Rewards</h2>
-                {this.props.rewards.map(reward => 
-                <RewardCard key={reward.id} reward={reward} />
-                )}
+            <div>
+                <div className="RewardCardContainer">
+                    <h2>Rewards</h2>
+                    <div className="span-col-2">
+                    { this.props.rewards.map(reward => 
+                        !reward.claimed ?
+                        <RewardCard key={reward.id} reward={reward} /> :
+                        null
+                        )}
+                    </div>
+                </div>
             </div>
         )
     };

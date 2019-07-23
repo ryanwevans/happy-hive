@@ -1,13 +1,16 @@
-const rewardsReducer = (
-    state = [], 
-    action) => {
-        switch(action.type) {
+const rewardsReducer = (state = [], action) => {
+        
+    switch(action.type) {
 
-            case 'FETCH_REWARDS':
-                return state.concat(action.rewards);
+        case 'FETCH_REWARDS':
+            return action.rewards;
 
-            default:
-                return state;
+        case 'ADD_REWARD':
+            return state.concat(action.reward)
+
+        default:
+            return state;
+            
     }
 }
 

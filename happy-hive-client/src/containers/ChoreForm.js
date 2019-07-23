@@ -21,7 +21,9 @@ class ChoreForm extends Component {
         const { name, description, points_value, assigned_to, complete } = this.props.choreFormData 
         return (
             <div>
-                Add a New Chore
+                <div className="ChoreFormContainer">
+                <br/>
+                <h2>Add a New Chore</h2>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label htmlFor="name">Chore Name: </label>
@@ -45,6 +47,7 @@ class ChoreForm extends Component {
                     </div>
                     <button type="submit">Add Chore</button>
                 </form>
+                </div>
             </div>
         )
     }

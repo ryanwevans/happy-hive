@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getChores } from '../actions/chores';
-import ChoreCard from '../components/ChoreCard'
-import ChoreForm from './ChoreForm';
+import { getChores, editChore } from '../actions/chores';
+import ChoreCard from '../components/ChoreCard';
 
 
 class Chores extends Component {
@@ -13,19 +12,19 @@ class Chores extends Component {
     }
     
     render() {
-        console.log(this.props.chores)
+        console.log(this.props)
         return (
             <div>
                 <div className="ChoreCardContainer">
                     <h2>Chores</h2>
                     <div className="span-col-2">
                     { this.props.chores.map(chore => 
-                        <ChoreCard chore={chore}/>)}
+                        <ChoreCard 
+                            key={chore.id} 
+                            chore={chore} 
+                            editChore={this.props.editChore} />) }
                     </div>
                 </div>
-                <span>
-                    <ChoreForm />
-                </span>
             </div>
         )
     };
@@ -37,4 +36,4 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps, { getChores })(Chores);
+export default connect(mapStateToProps, { getChores, editChore })(Chores);
