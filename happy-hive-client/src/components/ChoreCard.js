@@ -10,8 +10,16 @@ class ChoreCard extends Component {
         
         return (
             <div className="ChoreCard">
-                <Route path='/chores/:id' component={Chore} />
-                <h3><Link to={`/chores/${chore}`}>{chore.name}</Link></h3>
+                
+                {/* <Route path='/chores/:id' component={Chore} /> */}
+
+                <h3><Link to={{
+                    pathname: `/chores/${chore.id}`,
+                    state: {
+                        chore: {chore}
+                    }
+                    }}>{chore.name}</Link></h3>
+
                 <p>{chore.description}</p>
                 <p>Points: {chore.points_value}</p>
              </div> 

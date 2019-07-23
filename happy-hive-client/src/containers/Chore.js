@@ -8,8 +8,7 @@ class Chore extends Component {
         const { chore } = this.props
         return(
             <div>
-                <h3>{chore.name}</h3>
-                <p>{chore.description}</p>
+                <h3>Chore Component</h3>
             </div>
         )
     }
