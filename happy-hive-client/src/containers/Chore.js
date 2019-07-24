@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class Chore extends Component {
-    
-    render() {
-        console.log(this.props)
-        const { chore } = this.props
-        return(
-            <div>
-                <h3>Chore Component</h3>
-            </div>
-        )
-    }
+const Chore = ({ match, chores }) => {        
+    return (
+        <div>
+            <h3>Chore</h3>
+            {/* This next line returns a TypeError: Cannot read property of name */}
+            <p>{ chores[match.params.choreId].name }</p>
+        </div>
+    )
 }
 
 export default Chore;

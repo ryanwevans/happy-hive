@@ -8,7 +8,7 @@
 }
 
 #App::after {
-  background: url('./images/hexagon.svg');
+  background: url('../components/images/hexagon.svg');
   opacity: 0.9;
   /* content: ""; */
   top: 0;
