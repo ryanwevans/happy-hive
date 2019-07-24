@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores } from '../actions/chores';
 import NavBar from '../components/Navbar';
@@ -23,20 +23,20 @@ class App extends Component {
                 <div className="grid App" id="App">
                     <div className="span-col-2">
                         <NavBar />
-                        
-                        <Route exact path='/' render={ () => <div><br/><h2>Welcome to Happy Hive</h2></div>} />
+                        <Switch>
+                            <Route exact path='/' render={ () => <div><br/><h2>Welcome to Happy Hive</h2></div>} />
 
-                        <Route exact path='/chores/:id' 
-                            render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}/>) } />
+                            <Route exact path='/chores/new' render={ () => (<ChoreForm />) } />
 
-                        <Route exact path='/chores/new' render={ () => (<ChoreForm />) } />
+                            <Route exact path='/chores/:id' 
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}/>) } />
 
-                        <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores}/>) } />
+                            <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores}/>) } />
 
-                        <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
+                            <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
 
-                        <Route exact path='/rewards' render={ () => (<Rewards />) } />
-
+                            <Route exact path='/rewards' render={ () => (<Rewards />) } />
+                        </Switch>
                     </div>
                         <div className="span-col-2">Claimed Rewards</div>
                 </div>
