@@ -4,7 +4,7 @@ const Chore = ({ match, chores }) => {
     return (
         <div>
             <h3>Chore</h3>
-            {/* This next line returns a TypeError: Cannot read property of name */}
+            {/* This next line returns a TypeError: Cannot read property 'name' of undefined */}
             <p>{ chores[match.params.choreId].name }</p>
         </div>
     )
