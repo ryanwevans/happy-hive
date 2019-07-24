@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Chore = ({ match, chores }) => { 
-    console.log(match.params)       
-    console.log(chores)       
+const Chore = ({ match, chores }) => {  
+    const choreId = match.params.id - 1
+    const chore = chores[choreId]
     return (
-        <div>
-            <h3>Chore</h3>
-            {/* This next line returns a TypeError: Cannot read property 'name' of undefined */}
-            {/* <p>{ chores[match.params.id].name }</p> */}
+        <div className="ChoreItem">
+            <h3>{ chore && chore.name }</h3>
+            <br/>
+            <p>{ chore && chore.description }</p>
+            <br/>
+            <p>Points: { chore && chore.points_value}</p>
         </div>
     )
 }

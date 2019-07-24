@@ -1,12 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Rewards.css';
 
-const RewardCard = ({ reward }) => (
-    <div className="RewardCard">
-        <h3>{reward.name}</h3>
-        <p>{reward.description}</p>
-        <p>Value: {reward.value}</p>
-    </div>
-)
+const RewardCard = ({ reward }) => {
+    console.log(reward)
+    return (
+        <div className="ChoreCard">
+            <Link to={`/rewards/${reward.id}`}>
+                <h4>{reward.name}</h4>
+                <textbox>{reward.description}</textbox>
+                <br/>
+                <p>Value: {reward.value}</p>
+            </Link>
+        </div>
+    )
+}
 
 export default RewardCard;

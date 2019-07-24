@@ -7,10 +7,9 @@
   color: rgba(53, 58, 57, 0.897);
 }
 
-#App::after {
+.App::after {
   background: url('../components/images/hexagon.svg');
   opacity: 0.9;
-  /* content: ""; */
   top: 0;
   left: 0;
   bottom: 0;

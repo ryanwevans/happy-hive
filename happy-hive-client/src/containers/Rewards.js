@@ -1,38 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { getRewards } from '../actions/rewards';
+import React from 'react';
 import RewardCard from '../components/RewardCard';
 
+const Rewards = ({ rewards }) => {
+    const renderRewardCards = Object.keys(rewards).map( rewardID => 
+        <div key={rewardID}>
+            <RewardCard reward={rewards[rewardID]}/>
+        </div>)
 
-class Rewards extends Component {
-
-    componentDidMount() {
-        this.props.getRewards()
+    return (
+        <div className="RewardCardContainer">
+            <h3>Rewards</h3>
+            <br/>
+            {renderRewardCards}
+        </div>
+    )
     };
-    
-    render() {
-        return (
-            <div>
-                <div className="RewardCardContainer">
-                    <h2>Rewards</h2>
-                    <div className="span-col-2">
-                    { this.props.rewards.map(reward => 
-                        !reward.claimed ?
-                        <RewardCard key={reward.id} reward={reward} /> :
-                        null
-                        )}
-                    </div>
-                </div>
-            </div>
-        )
-    };
-}
 
-const mapStateToProps = state => {
-    return ({
-        rewards: state.rewards
-    })
-}
-
-export default connect(mapStateToProps, { getRewards })(Rewards);
+export default Rewards;
