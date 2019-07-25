@@ -10,6 +10,7 @@ const Chore = ({ match, chores }) => {
             <p>{ chore && chore.description }</p>
             <br/>
             <p>Points: { chore && chore.points_value}</p>
+            {/* Add button to 'complete' chore */}
         </div>
     )
 }

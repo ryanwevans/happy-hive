@@ -8,7 +8,7 @@ import './App.css';
 
 import Chores from './Chores';
 import Chore from './Chore';
-import ChoreForm from './ChoreForm';
+import ChoreNewForm from './ChoreNewForm';
 import Rewards from './Rewards';
 import Reward from './Reward';
 import RewardForm from './RewardForm';
@@ -31,7 +31,7 @@ class App extends Component {
                             <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
 
                             {/* Chores Routes */}
-                            <Route exact path='/chores/new' render={ () => (<ChoreForm />) } />
+                            <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
                                 render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}/>) } />

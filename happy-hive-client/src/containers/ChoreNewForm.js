@@ -4,7 +4,7 @@ import { createChore } from '../actions/chores'
 import { withRouter } from 'react-router-dom';
 import { updateChoreFormData } from '../actions/choreForm'
 
-class ChoreForm extends Component {
+class ChoreNewForm extends Component {
 
     handleOnChange = event => {
         const {name, value} = event.target;
@@ -73,4 +73,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { createChore, updateChoreFormData })
-(withRouter(ChoreForm));
+(withRouter(ChoreNewForm));
