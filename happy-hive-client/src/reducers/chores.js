@@ -12,7 +12,7 @@ const choresReducer = (state = [], action) => {
             const chore = action.chore
             return {
                 ...state.chores, chore
-            }
+            };
 
         default:
             return state;
