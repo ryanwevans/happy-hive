@@ -28,7 +28,7 @@ const updateChore = chore => {
 export const getChores = () => {
     return dispatch => {
         return fetch(`${API_URL}/chores`)
-            .then(resp => resp.json())
+            .then(response => response.json())
             .then(chores => dispatch(fetchChores(chores)))
             .catch(error => console.log(error))
     }
@@ -48,7 +48,6 @@ export const createChore = chore => {
             dispatch(addChore(chore))
             dispatch(resetChoreFormData())
         })
-        
         .catch(error => console.log(error))
     }
 }
@@ -63,9 +62,7 @@ export const editChore = chore => {
             body: JSON.stringify({ chore })
         })
         .then(response => response.json())
-        .then(chore => {
-            dispatch(updateChore(chore))
-        })
+        .then(chore => dispatch(updateChore(chore)))
         .catch(error => console.log(error))
     }
 }

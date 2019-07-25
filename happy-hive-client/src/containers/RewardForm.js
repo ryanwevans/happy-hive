@@ -69,5 +69,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { createReward, updateRewardFormData })
-(withRouter(RewardForm));
+export default connect(mapStateToProps, { createReward, updateRewardFormData })(withRouter(RewardForm));

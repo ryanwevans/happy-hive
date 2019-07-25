@@ -24,3 +24,41 @@ const updateAcheiver = (acheiver) => {
 
 
 //  ** Async Actions **
+export const getAcheivers = () => {
+    return dispatch => {
+        return fetch(`${API_URL}/acheivers`)
+        .then(response => response.json())
+        .then(acheivers => dispatch(fetchAcheivers(acheivers)))
+        .catch(error => console.log(error))
+    }
+}
+
+export const addAcheiver = (acheiver) => {
+    return dispatch => {
+        return fetch(`${API_URL}/acheivers`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({acheiver})
+        })
+        .then(response => response.json())
+        .then(acheiver => dispatch(addAcheiver(acheiver)))
+        .catch(error => console.log(error))
+    }
+}
+
+export const editAcheiver = (acheiver) => {
+    return dispatch => {
+        return fetch(`${API_URL}/acheivers/${acheiver.id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({acheiver})
+        })
+        .then(response => response.json())
+        .then(acheiver => dispatch(updateAcheiver(acheiver)))
+        .catch(error => console.log(error))
+    }
+}

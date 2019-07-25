@@ -72,5 +72,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { createChore, updateChoreFormData })
-(withRouter(ChoreNewForm));
+export default connect(mapStateToProps, { createChore, updateChoreFormData })(withRouter(ChoreNewForm));
