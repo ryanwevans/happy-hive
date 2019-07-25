@@ -1,15 +1,11 @@
 .App {
-  /* background: url('./images/hexagon.svg');
-  opacity: 0.9; */
-  /* background-repeat: repeat; */
+  /* opacity: .97; */
   background-color: #7af0ea;
   text-align: center;
   color: rgba(53, 58, 57, 0.897);
 }
 
 .App::after {
-  background: url('../components/images/hexagon.svg');
-  opacity: 0.9;
   top: 0;
   left: 0;
   bottom: 0;

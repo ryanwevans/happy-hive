@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createReward } from '../actions/rewards'
-import { updateRewardFormData } from '../actions/rewardForm'
+import { withRouter } from  'react-router-dom';
+import { createReward } from '../actions/rewards';
+import { updateRewardFormData } from '../actions/rewardForm';
 
 class RewardForm extends Component {
 
@@ -15,35 +16,45 @@ class RewardForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault();
         this.props.createReward(this.props.rewardFormData);
+        this.props.history.push('/rewards')
     } 
     
     render() {
         const { name, description, value, claimed, claimed_by } = this.props.rewardFormData 
         return (
             <div>
-                <div className="RewardFormContainer">
+                <div className="RewardForm">
                 <br/>
-                <h2>Add a New Reward</h2>
+                <h3>New Reward</h3>
+                <br/>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
-                        <label htmlFor="name">Reward Name: </label>
+                        <label htmlFor="name">Reward Name: 
                         <input type="text" name="name" value={name} onChange={this.handleOnChange} />
+                        </label>
                     </div>
+                    
                     <div>
-                        <label htmlFor="description">Description: </label>
+                        <label htmlFor="description">Description: 
                         <input type="textarea" name="description" value={description} onChange={this.handleOnChange} />
+                        </label>
                     </div>
+                    
                     <div>
-                        <label htmlFor="value">Value: </label>
+                        <label htmlFor="value">Value: 
                         <input type="text" name="value" value={value} onChange={this.handleOnChange} />
+                        </label>
                     </div>
+                    
                     <div>
                         <input type="hidden" name="claimed" value={claimed} />
                     </div>
                     <div>
-                        <label htmlFor="claimed_by">Claimed By: </label>
+                        <label htmlFor="claimed_by">Claimed By: 
                         <input type="text" name="claimed_by" value={claimed_by} onChange={this.handleOnChange} />
+                        </label>
                     </div>
+                    <br/>
                     <button type="submit">Add Reward</button>
                 </form>
                 </div>
@@ -58,4 +69,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { createReward, updateRewardFormData })(RewardForm);
+export default connect(mapStateToProps, { createReward, updateRewardFormData })
+(withRouter(RewardForm));

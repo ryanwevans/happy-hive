@@ -27,8 +27,8 @@ class App extends Component {
                     <div className="span-col-2">
                         <NavBar />
                         <Switch>
-
-                            <Route exact path='/' render={ () => <div><br/><h2>Welcome to Happy Hive</h2></div>} />
+                            
+                            <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
 
                             {/* Chores Routes */}
                             <Route exact path='/chores/new' render={ () => (<ChoreForm />) } />
@@ -48,7 +48,7 @@ class App extends Component {
 
                         </Switch>
                     </div>
-                        <div className="span-col-2">Claimed Rewards</div>
+                        {/* <div className="span-col-2">Claimed Rewards</div> */}
                 </div>
             </Router>
         )
