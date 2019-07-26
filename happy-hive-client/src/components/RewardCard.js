@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Rewards.css';
 
 const RewardCard = ({ reward }) => {
-    console.log(reward)
     return (
         <div className="ChoreCard">
             <Link to={`/rewards/${reward.id}`}>

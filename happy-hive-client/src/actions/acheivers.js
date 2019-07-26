@@ -1,6 +1,13 @@
 const API_URL = process.env.REACT_APP_API_URL
 
 //  ** Action Creators **
+const fetchAcheivers = (acheivers) => {
+    return {
+        type: 'FETCH_ACHEIVERS',
+        acheivers
+    }
+}
+
 const addAcheiver = acheiver => {
     return {
         type: 'ADD_ACHEIVER',
@@ -8,10 +15,10 @@ const addAcheiver = acheiver => {
     }
 }
 
-const fetchAcheivers = (acheivers) => {
+export const setAcheiver = (acheiverName, props) => {
     return {
-        type: 'FETCH_ACHEIVERS',
-        acheivers
+        type: 'SET_ACHEIVER',
+        acheiverName
     }
 }
 
@@ -33,7 +40,7 @@ export const getAcheivers = () => {
     }
 }
 
-export const addAcheiver = (acheiver) => {
+export const createAcheiver = (acheiver) => {
     return dispatch => {
         return fetch(`${API_URL}/acheivers`, {
             method: 'POST',

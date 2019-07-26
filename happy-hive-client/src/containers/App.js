@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores } from '../actions/chores';
-import { getRewards } from '../actions/rewards'
+import { getRewards } from '../actions/rewards';
+import { getAcheivers, setAcheiver, createAcheiver } from '../actions/acheivers';
 import NavBar from '../components/Navbar';
 import './App.css';
 
@@ -18,14 +19,16 @@ class App extends Component {
     componentDidMount() {
         this.props.getChores()
         this.props.getRewards()
+        this.props.getAcheivers()
     }
 
     render() {
+        console.log(this.props)
         return (
             <Router>
                 <div className="grid App" id="App">
                     <div className="span-col-2">
-                        <NavBar />
+                        <NavBar acheivers={this.props.acheivers} createAcheiver={this.props.createAcheiver} setAcheiver={this.props.setAcheiver} current_acheiver={this.props.current_acheiver}/>
                         <Switch>
                             
                             <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
@@ -58,8 +61,10 @@ class App extends Component {
 const mapStateToProps = state => {
     return ({
         chores: state.chores,
-        rewards: state.rewards
+        rewards: state.rewards,
+        acheivers: state.acheivers,
+        current_acheiver: state.acheivers.current_acheiver
     })
 }
 
-export default connect(mapStateToProps, { getChores, getRewards })(App);
+export default connect(mapStateToProps, { getChores, getRewards, getAcheivers,createAcheiver, setAcheiver })(App);

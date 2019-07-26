@@ -1,4 +1,7 @@
-const acheiversReducer = (state = [], action) => {
+const acheiversReducer = (state = {
+    current_acheiver: {},
+    acheivers: []
+}, action) => {
 
     switch(action.type) {
 
@@ -6,12 +9,25 @@ const acheiversReducer = (state = [], action) => {
             return action.acheivers;
 
         case 'ADD_ACHEIVER':
-            return state.concat(action.acheiver);
+            const newAcheiver = action.acheiver
+            return {
+                ...state,
+                acheivers: [...state.concat(newAcheiver)]
+            };
+
+        case 'SET_ACHEIVER':
+            console.log(state)
+            const currentAcheiver = state.find( acheiver => acheiver.name === action.acheiverName)
+            return {
+                ...state,
+                current_acheiver: currentAcheiver
+            }
 
         case 'UPDATE_ACHEIVER':
-            const acheiver = action.acheiver
+            const updatedAcheiver = action.acheiver
             return {
-                ...state.acheivers, acheiver
+                ...state,
+                acheivers: [...state.acheivers, updatedAcheiver]
             };
 
         default:
