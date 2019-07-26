@@ -10,21 +10,23 @@ import { withRouter } from 'react-router-dom';
 
 const NavBar = (props) => {
 
-    // const handleOnSubmit = (event) => {
-    //     debugger
-    //     event.prevenDefault();
-    //     const formNameValue = event.target.elements.name.value;
-    //     const currentAcheiver = props.acheivers.find( acheiver => acheiver.name === formNameValue)
-    //     console.log(currentAcheiver)
-    // }
+    const checkAcheiver = (name) => {
+        const findAcheiver = props.acheivers.find( acheiver => acheiver.name === name)
+        return findAcheiver && findAcheiver.name.length > 0
+    }
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
         const nameValue = event.target.elements.name.value;
         const acheiverFormData = {name: nameValue, points_earned: 0};
-        props.setAcheiver(nameValue);
-        console.log(acheiverFormData)
-        // props.createAcheiver(acheiverFormData)
+
+        console.log(checkAcheiver(nameValue))
+        
+        if (checkAcheiver(nameValue)) {
+            props.setAcheiver(nameValue)
+        } else {
+            props.createAcheiver(acheiverFormData)
+        }
     }
 
 
