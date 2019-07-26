@@ -15,8 +15,8 @@ const acheiversReducer = (state = {
             };
 
         case 'SET_ACHEIVER':
-            console.log(state)
-            const currentAcheiver = state.find( acheiver => acheiver.name === action.acheiverName)
+            console.log(state.acheivers)
+            const currentAcheiver = state.acheivers.find( acheiver => acheiver.name === action.acheiverName)
             return {
                 ...state,
                 current_acheiver: currentAcheiver
