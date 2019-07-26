@@ -9,10 +9,10 @@ const acheiversReducer = (state = {
             return action.acheivers;
 
         case 'ADD_ACHEIVER':
-            const newAcheiver = action.acheiver
+            console.log(state)
+            const acheiver = action.acheiver
             return {
-                ...state,
-                acheivers: [...state.concat(newAcheiver)]
+                ...state.concat(acheiver)
             };
 
         case 'SET_ACHEIVER':
