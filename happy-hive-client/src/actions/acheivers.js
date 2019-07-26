@@ -15,7 +15,7 @@ const addAcheiver = acheiver => {
     }
 }
 
-export const setAcheiver = (acheiverName, props) => {
+export const setAcheiver = (acheiverName) => {
     return {
         type: 'SET_ACHEIVER',
         acheiverName
@@ -50,7 +50,10 @@ export const createAcheiver = (acheiver) => {
             body: JSON.stringify({acheiver})
         })
         .then(response => response.json())
-        .then(acheiver => dispatch(addAcheiver(acheiver)))
+        .then(acheiver => { 
+            dispatch(addAcheiver(acheiver))
+            dispatch(setAcheiver(acheiver))
+        })
         .catch(error => console.log(error))
     }
 }

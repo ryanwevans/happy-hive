@@ -1,6 +1,6 @@
 const acheiversReducer = (state = {
-    current_acheiver: {},
-    acheivers: []
+    acheivers: [],
+    current_acheiver: {}
 }, action) => {
 
     switch(action.type) {
@@ -9,7 +9,6 @@ const acheiversReducer = (state = {
             return action.acheivers;
 
         case 'ADD_ACHEIVER':
-            console.log(state)
             const acheiver = action.acheiver
             return {
                 ...state.concat(acheiver)
