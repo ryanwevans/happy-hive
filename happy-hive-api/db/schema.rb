@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_013731) do
+ActiveRecord::Schema.define(version: 2019_07_27_015858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "acheivers", force: :cascade do |t|
+  create_table "achievers", force: :cascade do |t|
     t.string "name"
     t.integer "points_earned"
     t.datetime "created_at", null: false
