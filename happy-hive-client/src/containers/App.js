@@ -23,7 +23,8 @@ class App extends Component {
     }
 
     completeChore = (chore) => {
-        this.props.editChore(chore)
+        console.log(chore)
+        // this.props.editChore(chore)
     }
 
     render() {
