@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores } from '../actions/chores';
 import { getRewards } from '../actions/rewards';
-import { getAcheivers, setAcheiver, createAcheiver } from '../actions/acheivers';
+import { getAchievers, setAchiever, createAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
 import './App.css';
 
@@ -19,7 +19,7 @@ class App extends Component {
     componentDidMount() {
         this.props.getChores()
         this.props.getRewards()
-        this.props.getAcheivers()
+        this.props.getAchievers()
     }
 
     render() {
@@ -28,7 +28,7 @@ class App extends Component {
             <Router>
                 <div className="grid App" id="App">
                     <div className="span-col-2">
-                        <NavBar acheivers={this.props.acheivers} createAcheiver={this.props.createAcheiver} setAcheiver={this.props.setAcheiver} current_acheiver={this.props.current_acheiver}/>
+                        <NavBar achievers={this.props.achievers} createAchiever={this.props.createAchiever} setAchiever={this.props.setAchiever} current_achiever={this.props.current_achiever}/>
                         <Switch>
                             
                             <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
@@ -62,9 +62,9 @@ const mapStateToProps = state => {
     return ({
         chores: state.chores,
         rewards: state.rewards,
-        acheivers: state.acheivers.acheivers,
-        current_acheiver: state.acheivers.current_acheiver
+        achievers: state.achievers.achievers,
+        current_achiever: state.achievers.current_achiever
     })
 }
 
-export default connect(mapStateToProps, { getChores, getRewards, getAcheivers, createAcheiver, setAcheiver })(App);
+export default connect(mapStateToProps, { getChores, getRewards, getAchievers, createAchiever, setAchiever })(App);

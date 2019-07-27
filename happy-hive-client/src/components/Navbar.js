@@ -10,29 +10,29 @@ import { withRouter } from 'react-router-dom';
 
 const NavBar = (props) => {
 
-    const checkAcheiver = (name) => {
-        const findAcheiver = props.acheivers.find( acheiver => acheiver.name === name)
-        return findAcheiver && findAcheiver.name.length > 0
+    const checkAchiever = (name) => {
+        const findAchiever = props.achievers.find( achiever => achiever.name === name)
+        return findAchiever && findAchiever.name.length > 0
     }
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
         const nameValue = event.target.elements.name.value;
-        const acheiverFormData = {name: nameValue, points_earned: 0};
+        const achieverFormData = {name: nameValue, points_earned: 0};
 
-        if (checkAcheiver(nameValue)) {
-            props.setAcheiver(nameValue)
+        if (checkAchiever(nameValue)) {
+            props.setAchiever(nameValue)
         } else {
-            props.createAcheiver(acheiverFormData)
+            props.createAchiever(achieverFormData)
         }
     }
 
     // const signInGreeting = () => {
-    //     console.log(props.current_acheiver)
+    //     console.log(props.current_achiever)
         // <Navbar bg="dark" variant="dark">
         //     <Navbar.Collapse className="justify-content-end">
         //         <Navbar.Text>
-        //         Signed in as: {props.current_acheiver.name}
+        //         Signed in as: {props.current_achiever.name}
         //         </Navbar.Text>
         //     </Navbar.Collapse>
         // </Navbar>
