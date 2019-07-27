@@ -6,20 +6,23 @@ const acheiversReducer = (state = {
     switch(action.type) {
 
         case 'FETCH_ACHEIVERS':
-            return action.acheivers;
+            return {
+                ...state,
+                acheivers: action.acheivers
+            };
 
         case 'ADD_ACHEIVER':
             const acheiver = action.acheiver
             return {
-                ...state.concat(acheiver)
+                ...state,
+                acheivers: [...state.acheivers, acheiver]
             };
 
         case 'SET_ACHEIVER':
             console.log(state.acheivers)
-            const currentAcheiver = state.acheivers.find( acheiver => acheiver.name === action.acheiverName)
             return {
                 ...state,
-                current_acheiver: currentAcheiver
+                current_acheiver: state.acheivers.filter( acheiver => acheiver.name === action.acheiverName)
             }
 
         case 'UPDATE_ACHEIVER':

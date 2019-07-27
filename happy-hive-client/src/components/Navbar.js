@@ -20,8 +20,6 @@ const NavBar = (props) => {
         const nameValue = event.target.elements.name.value;
         const acheiverFormData = {name: nameValue, points_earned: 0};
 
-        console.log(checkAcheiver(nameValue))
-        
         if (checkAcheiver(nameValue)) {
             props.setAcheiver(nameValue)
         } else {
@@ -29,24 +27,31 @@ const NavBar = (props) => {
         }
     }
 
+    // const signInGreeting = () => {
+    //     console.log(props.current_acheiver)
+        // <Navbar bg="dark" variant="dark">
+        //     <Navbar.Collapse className="justify-content-end">
+        //         <Navbar.Text>
+        //         Signed in as: {props.current_acheiver.name}
+        //         </Navbar.Text>
+        //     </Navbar.Collapse>
+        // </Navbar>
+    // }
+
 
     return (
         <Navbar bg="dark" variant="dark">
 
             <Navbar.Brand href="/">Happy Hive</Navbar.Brand>
+
             <Navbar className="mr-auto">
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/chores/new'>Add Chore</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
             </Navbar>
-            
+             
             <Navbar bg="dark" variant="dark">
-                {/* <Navbar.Collapse className="justify-content-end">
-                    <Navbar.Text>
-                    Signed in as: {props.current_acheiver}
-                    </Navbar.Text>
-                </Navbar.Collapse> */}
                 <Form inline onSubmit={handleOnSubmit}>
                     <InputGroup size="sm">
                         <InputGroup.Prepend size="sm">
@@ -62,7 +67,6 @@ const NavBar = (props) => {
                         <Button size="sm" variant="outline-info" type="submit">Sign In</Button>
                     </InputGroup>
                 </Form>
-
             </Navbar>
 
         </Navbar>

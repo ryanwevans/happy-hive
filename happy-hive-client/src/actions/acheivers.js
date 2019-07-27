@@ -52,7 +52,6 @@ export const createAcheiver = (acheiver) => {
         .then(response => response.json())
         .then(acheiver => { 
             dispatch(addAcheiver(acheiver))
-            console.log(acheiver.name)
             dispatch(setAcheiver(acheiver.name))
         })
         .catch(error => console.log(error))

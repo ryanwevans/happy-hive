@@ -62,9 +62,9 @@ const mapStateToProps = state => {
     return ({
         chores: state.chores,
         rewards: state.rewards,
-        acheivers: state.acheivers,
+        acheivers: state.acheivers.acheivers,
         current_acheiver: state.acheivers.current_acheiver
     })
 }
 
-export default connect(mapStateToProps, { getChores, getRewards, getAcheivers,createAcheiver, setAcheiver })(App);
+export default connect(mapStateToProps, { getChores, getRewards, getAcheivers, createAcheiver, setAcheiver })(App);
