@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getChores } from '../actions/chores';
+import { getChores, editChore } from '../actions/chores';
 import { getRewards } from '../actions/rewards';
 import { getAchievers, setAchiever, createAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
 import './App.css';
 
-import Chores from './Chores';
-import Chore from './Chore';
-import ChoreNewForm from './ChoreNewForm';
-import Rewards from './Rewards';
-import Reward from './Reward';
-import RewardForm from './RewardForm';
+import Chores from '../components/chores/Chores';
+import Chore from '../components/chores/Chore';
+import ChoreNewForm from './chores/ChoreNewForm';
+import Rewards from '../components/rewards/Rewards';
+import Reward from '../components/rewards/Reward';
+import RewardForm from './rewards/RewardForm';
 
 class App extends Component {
 
@@ -22,13 +22,22 @@ class App extends Component {
         this.props.getAchievers()
     }
 
+    completeChore = (chore) => {
+        this.props.editChore(chore)
+    }
+
     render() {
         console.log(this.props)
         return (
             <Router>
                 <div className="grid App" id="App">
                     <div className="span-col-2">
-                        <NavBar achievers={this.props.achievers} createAchiever={this.props.createAchiever} setAchiever={this.props.setAchiever} current_achiever={this.props.current_achiever}/>
+                        <NavBar 
+                            achievers={this.props.achievers} 
+                            createAchiever={this.props.createAchiever} 
+                            setAchiever={this.props.setAchiever} 
+                            current_achiever={this.props.current_achiever}/>
+
                         <Switch>
                             
                             <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
@@ -37,7 +46,7 @@ class App extends Component {
                             <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
-                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}/>) } />
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} completeChore={this.completeChore} />) } />
 
                             <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} />) } />
 
@@ -67,4 +76,5 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps, { getChores, getRewards, getAchievers, createAchiever, setAchiever })(App);
+export default connect(mapStateToProps, 
+    { getChores, editChore, getRewards, getAchievers, createAchiever, setAchiever })(App);

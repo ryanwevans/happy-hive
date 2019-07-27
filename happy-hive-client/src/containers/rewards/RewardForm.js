@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from  'react-router-dom';
-import { createReward } from '../actions/rewards';
-import { updateRewardFormData } from '../actions/rewardForm';
+import { createReward } from '../../actions/rewards';
+import { updateRewardFormData } from '../../actions/rewardForm';
 
 class RewardForm extends Component {
 

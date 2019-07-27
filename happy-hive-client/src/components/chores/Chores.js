@@ -1,5 +1,5 @@
 import React from 'react';
-import ChoreCard from '../components/ChoreCard';
+import ChoreCard from './ChoreCard';
 
 const Chores = ({ chores }) => {
     const renderChoreCards = Object.keys(chores).map( chore => 

@@ -1,5 +1,5 @@
 import React from 'react';
-import RewardCard from '../components/RewardCard';
+import RewardCard from '../../components/rewards/RewardCard';
 
 const Rewards = ({ rewards }) => {
     const renderRewardCards = Object.keys(rewards).map( rewardID => 

@@ -18,6 +18,7 @@ const addChore = chore => {
 }
 
 const updateChore = chore => {
+    console.log(chore)
     return {
         type: 'UPDATE_CHORE',
         chore
@@ -53,6 +54,7 @@ export const createChore = chore => {
 }
 
 export const editChore = chore => {
+    // console.log(chore)
     return dispatch => {
         return fetch(`${API_URL}/chores/${chore.id}`, {
             method: 'PUT',
