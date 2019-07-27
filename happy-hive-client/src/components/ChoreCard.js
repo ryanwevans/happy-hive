@@ -9,7 +9,7 @@ const ChoreCard = ({ chore }) => {
                 <h4>{chore.name}</h4>
                 <p>{chore.description}</p>
                 <br/>
-                <p>Points: {chore.points_value}</p>
+                <p><em>Points: {chore.points_value}</em></p>
             </Link>
         </div>
     )

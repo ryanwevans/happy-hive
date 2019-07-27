@@ -4,12 +4,11 @@ import './Rewards.css';
 
 const RewardCard = ({ reward }) => {
     return (
-        <div className="ChoreCard">
+        <div className="RewardCard">
             <Link to={`/rewards/${reward.id}`}>
-                <h4>{reward.name}</h4>
-                <textbox>{reward.description}</textbox>
-                <br/>
-                <p>Value: {reward.value}</p>
+                    <h4>{reward.name}</h4>
+                    <p>{reward.description}</p>
+                    <p><em>Value: {reward.value}</em></p>
             </Link>
         </div>
     )
