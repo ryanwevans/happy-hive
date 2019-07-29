@@ -9,8 +9,8 @@ const Chore = ({ match, chores }, props) => {
 
     const handleButtonClick = () => {
         chore.complete = true;
-        console.log(chore)
-        // props.completeChore(chore);
+        // console.log(chore)
+        props.completeChore(chore);
     }
     
     return (

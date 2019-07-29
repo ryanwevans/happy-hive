@@ -20,7 +20,7 @@ class ChoreNewForm extends Component {
     } 
     
     render() {
-        const { name, description, points_value, assigned_to, complete } = this.props.choreFormData 
+        const { name, description, points_value } = this.props.choreFormData 
         return (
             <div>
                 <div className="ChoreForm">
@@ -46,7 +46,7 @@ class ChoreNewForm extends Component {
                         </label>
                     </div>
                     
-                    <div>
+                    {/* <div>
                         <label htmlFor="assigned_to">Assigned To: 
                         <input type="text" name="assigned_to" value={assigned_to} onChange={this.handleOnChange} />
                         </label>
@@ -56,7 +56,7 @@ class ChoreNewForm extends Component {
                         <label htmlFor="complete">Complete? 
                         <input type="checkbox" name="complete" value={complete} onChange={this.handleOnChange} />
                         </label>
-                    </div>
+                    </div> */}
                     <br/>
                     <button type="submit">Add Chore</button>
                 </form>
