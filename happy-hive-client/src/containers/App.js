@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getChores, editChore } from '../actions/chores';
+import { getChores } from '../actions/chores';
 import { getRewards } from '../actions/rewards';
 import { getAchievers, setAchiever, createAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
@@ -22,11 +22,6 @@ class App extends Component {
         this.props.getAchievers()
     }
 
-    completeChore = (chore) => {
-        console.log(chore)
-        // this.props.editChore(chore)
-    }
-
     render() {
         console.log(this.props)
         return (
@@ -43,13 +38,15 @@ class App extends Component {
                             
                             <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
 
+
                             {/* Chores Routes */}
                             <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
-                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} completeChore={this.completeChore} />) } />
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}  />) } />
 
                             <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} />) } />
+
 
                             {/* Rewards Routes */}
                             <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
@@ -78,4 +75,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, 
-    { getChores, editChore, getRewards, getAchievers, createAchiever, setAchiever })(App);
+    { getChores, getRewards, getAchievers, createAchiever, setAchiever })(App);

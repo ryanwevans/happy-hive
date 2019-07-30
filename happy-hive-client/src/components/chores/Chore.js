@@ -1,16 +1,16 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { editChore } from '../../actions/chores';
 
-const Chore = ({ match, chores }, props) => { 
+const Chore = ({ match, chores }) => { 
     
     const choreId = match.params.id - 1
     const chore = chores[choreId]
-    chore && console.log(chore.complete)
 
     const handleButtonClick = () => {
         chore.complete = true;
-        // console.log(chore)
-        props.completeChore(chore);
+        editChore(chore) /* this executes */
+        console.log(chore) /* this logs to the console  */
     }
     
     return (

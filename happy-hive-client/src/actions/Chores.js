@@ -18,7 +18,6 @@ const addChore = chore => {
 }
 
 const updateChore = chore => {
-    console.log(chore)
     return {
         type: 'UPDATE_CHORE',
         chore
@@ -42,7 +41,7 @@ export const createChore = chore => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ chore })
+            body: JSON.stringify( {chore} )
         })
         .then(response => response.json())
         .then(chore => {
@@ -54,17 +53,20 @@ export const createChore = chore => {
 }
 
 export const editChore = chore => {
-    // console.log(chore)
+    console.log(chore) /* this logs to the console */
     return dispatch => {
         return fetch(`${API_URL}/chores/${chore.id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ chore })
+            body: JSON.stringify( {chore} )
         })
         .then(response => response.json())
-        .then(chore => dispatch(updateChore(chore)))
+        .then(chore => {
+            dispatch(updateChore(chore))
+            console.log(chore) /* this does not log to the console */
+        })
         .catch(error => console.log(error))
     }
 }
