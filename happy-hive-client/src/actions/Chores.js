@@ -58,7 +58,8 @@ export const editChore = chore => {
         return fetch(`${API_URL}/chores/${chore.id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify( {chore} )
         })

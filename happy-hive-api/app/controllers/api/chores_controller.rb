@@ -1,4 +1,5 @@
 class Api::ChoresController < ApplicationController
+    require 'pry'
     before_action :set_chore, only: [:show, :update, :destroy]
 
     def index
@@ -19,6 +20,7 @@ class Api::ChoresController < ApplicationController
     end
 
     def update
+        binding.pry
         if @chore.update
             render json: @chore
         else
