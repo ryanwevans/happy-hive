@@ -21,7 +21,7 @@ class Api::ChoresController < ApplicationController
 
     def update
         binding.pry
-        if @chore.update
+        if @chore.update(chore_params)
             render json: @chore
         else
             render json: { message: @chore.errors }, status: 400

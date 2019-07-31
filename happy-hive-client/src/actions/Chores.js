@@ -56,10 +56,10 @@ export const editChore = chore => {
     console.log(chore) /* this logs to the console */
     return dispatch => {
         return fetch(`${API_URL}/chores/${chore.id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                // 'Accept': 'application/json'
             },
             body: JSON.stringify( {chore} )
         })
