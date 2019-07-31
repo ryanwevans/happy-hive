@@ -20,7 +20,6 @@ class Api::ChoresController < ApplicationController
     end
 
     def update
-        # binding.pry
         if @chore.update(chore_params)
             render json: @chore
         else

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Chores.css'
 
 const ChoreCard = ({ chore }) => {
-    console.log(chore.id)
     return (
         <div className="ChoreCard">
             <Link to={`/chores/${chore.id}`}>

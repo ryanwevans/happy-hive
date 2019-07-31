@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ChoreCard from './ChoreCard';
 
-const Chores = ({ chores }) => {
-    const renderChoreCards = chores.map( chore => 
-        <div key={chore.id}>
-            <ChoreCard chore={chore}/>
-        </div>)
+class Chores extends Component {
 
-    return (
-        <div className="ChoreCardContainer">
-            <h3>Chores</h3>
-            <br/>
-            {renderChoreCards}
-        </div>
-    )
+    render() {
+
+        console.log(this.props.chores)
+        const renderChoreCards = this.props.chores.map( chore => 
+            <div key={chore.id}>
+                <ChoreCard chore={chore}/>
+            </div>)
+
+        return (
+            <div className="ChoreCardContainer">
+                <h3>Chores</h3>
+                <br/>
+                {renderChoreCards}
+            </div>
+        )
+    }
 }
 
 export default Chores;
