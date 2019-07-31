@@ -11,9 +11,9 @@ const choresReducer = (state = [], action) => {
         case 'UPDATE_CHORE':
             console.log(action.chore)
             const chore = action.chore
-            return {
+            return ({
                 ...state.chores, chore
-            };
+            }, console.log(state));
 
         default:
             return state;

@@ -43,7 +43,7 @@ class App extends Component {
                             <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
-                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores}  />) } />
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} />) } />
 
                             <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} />) } />
 

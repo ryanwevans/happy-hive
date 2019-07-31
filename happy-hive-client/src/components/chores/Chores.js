@@ -2,9 +2,9 @@ import React from 'react';
 import ChoreCard from './ChoreCard';
 
 const Chores = ({ chores }) => {
-    const renderChoreCards = Object.keys(chores).map( chore => 
-        <div key={chore}>
-            <ChoreCard chore={chores[chore]}/>
+    const renderChoreCards = chores.map( chore => 
+        <div key={chore.id}>
+            <ChoreCard chore={chore}/>
         </div>)
 
     return (

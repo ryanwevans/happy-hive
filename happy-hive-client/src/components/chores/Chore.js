@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
 import { editChore } from '../../actions/chores';
 
-const Chore = ({ match, chores }) => { 
+const Chore = ({ match, chores, editChore, history }) => { 
     
-    const choreId = match.params.id - 1
+    const choreId = match.params.id
+    console.log(choreId)
     const chore = chores[choreId]
 
     const handleButtonClick = (event) => {
         event.preventDefault();
         chore.complete = true;
-        editChore(chore) /* this executes */
-        console.log(chore) /* this logs to the console  */
+        editChore(chore);
+        history.push('/chores');
     }
     
     return (
@@ -27,4 +29,4 @@ const Chore = ({ match, chores }) => {
     )
 }
 
-export default connect(null, {editChore})(Chore);
+export default connect(null, {editChore, withRouter})(withRouter(Chore));
