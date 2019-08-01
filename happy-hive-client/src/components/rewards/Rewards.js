@@ -1,19 +1,27 @@
-import React from 'react';
-import RewardCard from '../../components/rewards/RewardCard';
+import React, { Component } from 'react';
+import RewardCard from './RewardCard';
 
-const Rewards = ({ rewards }) => {
-    const renderRewardCards = Object.keys(rewards).map( rewardID => 
-        <div key={rewardID}>
-            <RewardCard reward={rewards[rewardID]}/>
-        </div>)
+class Rewards extends Component {
 
-    return (
-        <div className="RewardCardContainer">
-            <h3>Rewards</h3>
-            <br/>
-            {renderRewardCards}
-        </div>
-    )
-    };
+    render() {
+        console.log(this.props.rewards)
+
+        const renderRewardCards = this.props.rewards.map( reward => {
+            if (!reward.claimed) {
+                return (<div key={reward.id}>
+                    <RewardCard reward={reward} rewards={this.props.rewards}/>
+                </div>)
+            } return null;
+        });
+
+        return (
+            <div className="RewardCardContainer">
+                <h3>Rewards</h3>
+                <br/>
+                {renderRewardCards}
+            </div>
+        );
+    }
+};
 
 export default Rewards;

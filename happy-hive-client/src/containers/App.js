@@ -31,7 +31,7 @@ class App extends Component {
         this.props.editChore(chore)
     }
 
-    redeemReward(reward) {
+    claimReward(reward) {
         console.log(reward)
         this.props.current_achiever.points_earned -= reward.points_value
         this.props.editAchiever(this.props.current_achiever)
@@ -68,7 +68,7 @@ class App extends Component {
                             <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
 
                             <Route exact path='/rewards/:id' 
-                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards}/>) } />
+                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} claimReward={this.claimReward}/>) } />
 
                             <Route exact path='/rewards' render={ routerProps => (<Rewards {...routerProps} rewards={this.props.rewards} />) } />
 
