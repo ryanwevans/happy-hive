@@ -17,6 +17,13 @@ const addReward = reward => {
     }
 }
 
+const updateReward = reward => {
+    return {
+        type: 'UPDATE_REWARD',
+        reward
+    }
+}
+
 // ** Async Actions
 export const getRewards = () => {
     return dispatch => {
@@ -42,6 +49,24 @@ export const createReward = reward => {
             dispatch(resetRewardFormData())
         })
         
+        .catch(error => console.log(error))
+    }
+}
+
+export const editReward = reward => {
+    return dispatch => {
+        return fetch(`${API_URL}/rewards/${reward.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify( {reward} )
+        })
+        .then(response => response.json())
+        .then(reward => {
+            dispatch(updateReward(reward))
+        })
         .catch(error => console.log(error))
     }
 }

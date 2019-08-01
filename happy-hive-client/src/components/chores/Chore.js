@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
-import { editChore } from '../../actions/chores';
 
-// const Chore = ({ match, chores, editChore, history }) => { 
 class Chore extends Component { 
     
     render() {
         console.log(this.props)
-        const { match, chores, history, editChore } = this.props;
-        const choreId = match.params.id
-        const chore = chores.find( chore => chore[chore.id] === choreId)
-        console.log(chore)
-
+        const { location, history, completeChore } = this.props;
+        
+        const chore = location.choreProps
+        
         const handleButtonClick = (event) => {
             event.preventDefault();
-            chore.complete = true;
-            editChore(chore);
-            history.push('/chores');
+            completeChore(chore);
+            // history.push('/chores');
         }
         
         return (
@@ -34,4 +29,4 @@ class Chore extends Component {
     }
 }
 
-export default connect(null, {editChore, withRouter})(withRouter(Chore));
+export default withRouter(Chore);

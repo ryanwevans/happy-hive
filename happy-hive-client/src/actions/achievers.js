@@ -63,7 +63,7 @@ export const editAchiever = (achiever) => {
         return fetch(`${API_URL}/achievers/${achiever.id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({achiever})
         })
