@@ -24,9 +24,18 @@ class App extends Component {
 
     completeChore(chore) {
         chore.complete = true
-        this.props.current_achiever.points_earned += chore.points_value
-        this.props.editAchiever(this.props.current_achiever)
+        /* Check if current_achiever is getting overwritten with each component mount; consider using local state instead of redux store */
+        console.log(this.props.current_achiever)
+        this.props.current_achiever && (this.props.current_achiever.points_earned += chore.points_value)
+        this.props.current_achiever && this.props.editAchiever(this.props.current_achiever)
         this.props.editChore(chore)
+    }
+
+    redeemReward(reward) {
+        console.log(reward)
+        this.props.current_achiever.points_earned -= reward.points_value
+        this.props.editAchiever(this.props.current_achiever)
+        this.props.editReward(reward)
     }
 
     render() {

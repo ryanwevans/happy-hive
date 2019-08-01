@@ -7,6 +7,12 @@ const rewardsReducer = (state = [], action) => {
 
         case 'ADD_REWARD':
             return state.concat(action.reward)
+        
+        case 'UPDATE_REWARD':
+            const reward = action.reward
+            return {
+                ...state.reward, reward
+            }
 
         default:
             return state;
