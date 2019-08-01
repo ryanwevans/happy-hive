@@ -9,6 +9,7 @@ class Chore extends Component {
         const { location, history, completeChore } = this.props;
         
         const chore = location.choreProps
+        /* May need to add location.choresProps to use for pulling the chore data using the match.params.id so that the forward/back buttons function correctly */
         
         const handleButtonClick = (event) => {
             event.preventDefault();
