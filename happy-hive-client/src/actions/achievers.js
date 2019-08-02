@@ -16,6 +16,7 @@ const addAchiever = achiever => {
 }
 
 export const setAchiever = (achieverName) => {
+    sessionStorage.setItem('username', achieverName)
     return {
         type: 'SET_ACHIEVER',
         achieverName

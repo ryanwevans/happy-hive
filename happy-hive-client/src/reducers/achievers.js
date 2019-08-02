@@ -1,6 +1,6 @@
 const achieversReducer = (state = {
     achievers: [],
-    current_achiever: {}
+    current_achiever: sessionStorage.username || {}
 }, action) => {
 
     switch(action.type) {

@@ -9,22 +9,30 @@ import { withRouter } from 'react-router-dom';
 
 
 const NavBar = (props) => {
-
-    const checkAchiever = (name) => {
-        const findAchiever = props.achievers.find( achiever => achiever.name === name)
-        return findAchiever && findAchiever.name.length > 0
+    console.log(props)
+    const checkForAchiever = (name) => {
+        const isAchiever = props.achievers.find( achiever => achiever.name === name)
+        return isAchiever && isAchiever.name.length > 0
     }
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        const nameValue = event.target.elements.name.value;
-        const achieverFormData = {name: nameValue, points_earned: 0};
+        const name = event.target.elements.name.value;
+        const achieverFormData = {name: name, points_earned: 0};
 
-        if (checkAchiever(nameValue)) {
-            props.setAchiever(nameValue)
+        if (checkForAchiever(name)) {
+            console.log(checkForAchiever(name))
+            props.setAchiever(name)
         } else {
             props.createAchiever(achieverFormData)
         }
+    }
+
+    const handleOnLogout = event => {
+        event.preventDefault();
+        sessionStorage.clear();
+        props.setAchiever('')
+        props.history.push('/')
     }
 
     // const signInGreeting = () => {
@@ -38,7 +46,7 @@ const NavBar = (props) => {
         // </Navbar>
     // }
 
-
+    console.log(props.current_achiever)
     return (
         <Navbar bg="dark" variant="dark">
 
@@ -51,7 +59,26 @@ const NavBar = (props) => {
                 <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
             </Navbar>
              
-            <Navbar bg="dark" variant="dark">
+            { props.current_achiever.length > 0
+            ? <React.Fragment>
+                <Navbar bg="dark" variant="dark">
+                <Form inline onSubmit={handleOnLogout}>
+                    <InputGroup size="sm" variant="dark">
+                        <Button size="sm" variant="outline-info" type="submit">Logout</Button>
+                        <Navbar className="justify-content">
+                            <React.Fragment>
+                                <Navbar.Text>
+                                <div>
+                                    Welcome, {props.current_achiever}
+                                </div>
+                                </Navbar.Text>
+                            </React.Fragment>
+                        </Navbar>
+                    </InputGroup>
+                </Form>
+                </Navbar>
+             </React.Fragment>
+            : <Navbar bg="dark" variant="dark">
                 <Form inline onSubmit={handleOnSubmit}>
                     <InputGroup size="sm">
                         <InputGroup.Prepend size="sm">
@@ -68,6 +95,7 @@ const NavBar = (props) => {
                     </InputGroup>
                 </Form>
             </Navbar>
+            }
 
         </Navbar>
     )

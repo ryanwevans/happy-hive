@@ -20,10 +20,12 @@ class App extends Component {
         this.props.getChores()
         this.props.getRewards()
         this.props.getAchievers()
+        // const sessionUser = sessionStorage.username
+        // this.props.setAcheiver(sessionUser)
     }
 
     completeChore(chore) {
-        chore.complete = true
+        chore.complete = true;
         /* Check if current_achiever is getting overwritten with each component mount; consider using local state instead of redux store */
         console.log(this.props.current_achiever)
         this.props.current_achiever && (this.props.current_achiever.points_earned += chore.points_value)
@@ -32,7 +34,9 @@ class App extends Component {
     }
 
     claimReward(reward) {
-        console.log(reward)
+        reward.claimed = true;
+        /* Check if current_achiever is getting overwritten with each component mount; consider using local state instead of redux store */
+        console.log(this.props.current_achiever)
         this.props.current_achiever.points_earned -= reward.points_value
         this.props.editAchiever(this.props.current_achiever)
         this.props.editReward(reward)
@@ -44,11 +48,12 @@ class App extends Component {
             <Router>
                 <div className="grid App" id="App">
                     <div className="span-col-2">
-                        <NavBar 
+                        <NavBar
                             achievers={this.props.achievers} 
                             createAchiever={this.props.createAchiever} 
                             setAchiever={this.props.setAchiever} 
-                            current_achiever={this.props.current_achiever}/>
+                            current_achiever={this.props.current_achiever}
+                            />
 
                         <Switch>
                             
