@@ -9,23 +9,26 @@ import { withRouter } from 'react-router-dom';
 
 
 const NavBar = (props) => {
-    console.log(props)
+    
     const checkForAchiever = (name) => {
         const isAchiever = props.achievers.find( achiever => achiever.name === name)
-        return isAchiever && isAchiever.name.length > 0
+        if (isAchiever && isAchiever.name.length > 0) {
+            return isAchiever
+        } return false
     }
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        const name = event.target.elements.name.value;
-        const achieverFormData = {name: name, points_earned: 0};
+        const nameInput = event.target.elements.name.value;
+        // const achieverFormData = {name: nameInput, points_earned: 0};
 
-        if (checkForAchiever(name)) {
-            console.log(checkForAchiever(name))
-            props.setAchiever(name)
+        if (!checkForAchiever(nameInput)===false) {
+            const foundAchiever = checkForAchiever(nameInput)
+            props.setAchiever(foundAchiever)
         } else {
-            props.createAchiever(achieverFormData)
+            props.createAchiever({name: nameInput, points_earned: 0})
         }
+        props.history.push('/chores')
     }
 
     const handleOnLogout = event => {
@@ -46,7 +49,7 @@ const NavBar = (props) => {
         // </Navbar>
     // }
 
-    console.log(props.current_achiever)
+    console.log(sessionStorage)
     return (
         <Navbar bg="dark" variant="dark">
 
@@ -59,17 +62,18 @@ const NavBar = (props) => {
                 <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
             </Navbar>
              
-            { props.current_achiever.length > 0
+            { sessionStorage.current_user_name !== "undefined"
             ? <React.Fragment>
                 <Navbar bg="dark" variant="dark">
                 <Form inline onSubmit={handleOnLogout}>
-                    <InputGroup size="sm" variant="dark">
-                        <Button size="sm" variant="outline-info" type="submit">Logout</Button>
+                    <InputGroup size="xs" variant="dark">
+                        <Button size="xs" variant="outline-info" type="submit">Logout</Button>
                         <Navbar className="justify-content">
                             <React.Fragment>
                                 <Navbar.Text>
                                 <div>
-                                    Welcome, {props.current_achiever}
+                                    Welcome, <strong>{sessionStorage.current_user_name}</strong><br/>
+                                    {/* <em>points: {sessionStorage.current_user_points}</em> */}
                                 </div>
                                 </Navbar.Text>
                             </React.Fragment>

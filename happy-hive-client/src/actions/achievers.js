@@ -15,11 +15,13 @@ const addAchiever = achiever => {
     }
 }
 
-export const setAchiever = (achieverName) => {
-    sessionStorage.setItem('username', achieverName)
+export const setAchiever = (achiever) => {
+    sessionStorage.setItem('current_user_name', achiever.name)
+    sessionStorage.setItem('current_user_id', achiever.id)
+    sessionStorage.setItem('current_user_points', achiever.points_earned)
     return {
         type: 'SET_ACHIEVER',
-        achieverName
+        achiever
     }
 }
 
@@ -53,7 +55,7 @@ export const createAchiever = (achiever) => {
         .then(response => response.json())
         .then(achiever => { 
             dispatch(addAchiever(achiever))
-            dispatch(setAchiever(achiever.name))
+            dispatch(setAchiever(achiever))
         })
         .catch(error => console.log(error))
     }

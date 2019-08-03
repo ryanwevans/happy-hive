@@ -1,6 +1,6 @@
 const achieversReducer = (state = {
     achievers: [],
-    current_achiever: sessionStorage.username || {}
+    current_achiever: {}
 }, action) => {
 
     switch(action.type) {
@@ -19,10 +19,9 @@ const achieversReducer = (state = {
             };
 
         case 'SET_ACHIEVER':
-            console.log(state.achievers)
             return {
                 ...state,
-                current_achiever: state.achievers.filter( achiever => achiever.name === action.achieverName)
+                current_achiever: state.achievers.filter( achiever => achiever.id === action.achiever.id)
             }
 
         case 'UPDATE_ACHIEVER':
