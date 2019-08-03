@@ -43,3 +43,7 @@
   color: rgba(232, 233, 227, 0.897);
   text-decoration: none;
 }
+
+.points {
+  font-size: 14px;
+}

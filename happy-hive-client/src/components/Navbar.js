@@ -20,11 +20,13 @@ const NavBar = (props) => {
     const handleOnSubmit = (event) => {
         event.preventDefault();
         const nameInput = event.target.elements.name.value;
-        // const achieverFormData = {name: nameInput, points_earned: 0};
 
-        if (!checkForAchiever(nameInput)===false) {
+        if (checkForAchiever(nameInput) !== false) {
             const foundAchiever = checkForAchiever(nameInput)
-            props.setAchiever(foundAchiever)
+            // props.setCurrentAchiever(foundAchiever)
+            sessionStorage.setItem('current_user_name', foundAchiever.name)
+            sessionStorage.setItem('current_user_id', foundAchiever.id)
+            sessionStorage.setItem('current_user_points', foundAchiever.points_earned)
         } else {
             props.createAchiever({name: nameInput, points_earned: 0})
         }
@@ -34,24 +36,13 @@ const NavBar = (props) => {
     const handleOnLogout = event => {
         event.preventDefault();
         sessionStorage.clear();
-        props.setAchiever('')
+        // props.setCurrentAchiever(null)
         props.history.push('/')
     }
 
-    // const signInGreeting = () => {
-    //     console.log(props.current_achiever)
-        // <Navbar bg="dark" variant="dark">
-        //     <Navbar.Collapse className="justify-content-end">
-        //         <Navbar.Text>
-        //         Signed in as: {props.current_achiever.name}
-        //         </Navbar.Text>
-        //     </Navbar.Collapse>
-        // </Navbar>
-    // }
-
-    console.log(sessionStorage)
+    console.log(props)
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" size="sm">
 
             <Navbar.Brand href="/">Happy Hive</Navbar.Brand>
 
@@ -62,7 +53,8 @@ const NavBar = (props) => {
                 <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
             </Navbar>
              
-            { sessionStorage.current_user_name !== "undefined"
+            {/* Load 'sign in' form or display signed in user and 'log out' button */}
+            { sessionStorage.current_user_name
             ? <React.Fragment>
                 <Navbar bg="dark" variant="dark">
                 <Form inline onSubmit={handleOnLogout}>
@@ -71,9 +63,9 @@ const NavBar = (props) => {
                         <Navbar className="justify-content">
                             <React.Fragment>
                                 <Navbar.Text>
-                                <div>
+                                <div className="welcome">
                                     Welcome, <strong>{sessionStorage.current_user_name}</strong><br/>
-                                    {/* <em>points: {sessionStorage.current_user_points}</em> */}
+                                    <em className="points">points: {sessionStorage.current_user_points}</em>
                                 </div>
                                 </Navbar.Text>
                             </React.Fragment>

@@ -1,6 +1,6 @@
 const achieversReducer = (state = {
     achievers: [],
-    current_achiever: {}
+    current_achiever: null
 }, action) => {
 
     switch(action.type) {
@@ -18,18 +18,24 @@ const achieversReducer = (state = {
                 achievers: [...state.achievers, achiever]
             };
 
-        case 'SET_ACHIEVER':
-            return {
-                ...state,
-                current_achiever: state.achievers.filter( achiever => achiever.id === action.achiever.id)
-            }
-
         case 'UPDATE_ACHIEVER':
             const updatedAchiever = action.achiever
             return {
                 ...state,
                 achievers: [...state.achievers, updatedAchiever]
             };
+                
+        case 'SET_CURRENT_ACHIEVER':
+            return ({
+                ...state,
+                current_achiever: state.achievers.filter( achiever => achiever.id === action.achiever.id)
+            }, console.log(state.current_achiever))
+
+        case 'CLEAR_CURRENT_ACHIEVER':
+            return {
+                ...state,
+                current_achiever: null
+            }
 
         default:
             return state;

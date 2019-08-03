@@ -1,5 +1,6 @@
 class Api::AchieversController < ApplicationController
     before_action :set_achiever, only: [:show, :update, :destroy]
+    require 'pry'
 
     def index
         render json: Achiever.all
@@ -38,7 +39,7 @@ class Api::AchieversController < ApplicationController
     private
 
     def set_achiever
-        @achiever = Achiever.find_by(id: params[:id])
+        @achiever = Achiever.find_by(id: params[:id].to_i)
     end
 
     def achiever_params

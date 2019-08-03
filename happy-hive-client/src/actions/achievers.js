@@ -15,20 +15,26 @@ const addAchiever = achiever => {
     }
 }
 
-export const setAchiever = (achiever) => {
-    sessionStorage.setItem('current_user_name', achiever.name)
-    sessionStorage.setItem('current_user_id', achiever.id)
-    sessionStorage.setItem('current_user_points', achiever.points_earned)
-    return {
-        type: 'SET_ACHIEVER',
-        achiever
-    }
-}
-
 const updateAchiever = (achiever) => {
     return {
         type: 'UPDATE_ACHIEVER',
         achiever
+    }
+}
+
+export const setCurrentAchiever = (achiever) => {
+    sessionStorage.setItem('current_user_name', achiever.name)
+    sessionStorage.setItem('current_user_id', achiever.id)
+    sessionStorage.setItem('current_user_points', achiever.points_earned)
+    return {
+        type: 'SET_CURRENT_ACHIEVER',
+        achiever
+    }
+}
+
+export const clearCurrentAchiever = () => {
+    return {
+        type: 'CLEAR_CURRENT_ACHIEVER'
     }
 }
 
@@ -55,16 +61,17 @@ export const createAchiever = (achiever) => {
         .then(response => response.json())
         .then(achiever => { 
             dispatch(addAchiever(achiever))
-            dispatch(setAchiever(achiever))
+            dispatch(setCurrentAchiever(achiever))
         })
         .catch(error => console.log(error))
     }
 }
 
 export const editAchiever = (achiever) => {
+    console.log(achiever)
     return dispatch => {
         return fetch(`${API_URL}/achievers/${achiever.id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },

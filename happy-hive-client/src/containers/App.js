@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores, editChore } from '../actions/chores';
 import { getRewards } from '../actions/rewards';
-import { getAchievers, setAchiever, createAchiever, editAchiever } from '../actions/achievers';
+import { getAchievers, setCurrentAchiever, createAchiever, editAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
 import './App.css';
 
@@ -20,23 +20,11 @@ class App extends Component {
         this.props.getChores()
         this.props.getRewards()
         this.props.getAchievers()
-        // const sessionUser = sessionStorage.username
-        // this.props.setAcheiver(sessionUser)
-    }
-
-    completeChore(chore) {
-        chore.complete = true;
-        /* Check if current_achiever is getting overwritten with each component mount; consider using local state instead of redux store */
-        console.log(this.props.current_achiever)
-        this.props.current_achiever && (this.props.current_achiever.points_earned += chore.points_value)
-        this.props.current_achiever && this.props.editAchiever(this.props.current_achiever)
-        this.props.editChore(chore)
     }
 
     claimReward(reward) {
         reward.claimed = true;
-        /* Check if current_achiever is getting overwritten with each component mount; consider using local state instead of redux store */
-        console.log(this.props.current_achiever)
+        this.props && console.log(this.props.current_achiever)
         this.props.current_achiever.points_earned -= reward.points_value
         this.props.editAchiever(this.props.current_achiever)
         this.props.editReward(reward)
@@ -51,7 +39,7 @@ class App extends Component {
                         <NavBar
                             achievers={this.props.achievers} 
                             createAchiever={this.props.createAchiever} 
-                            setAchiever={this.props.setAchiever} 
+                            setCurrentAchiever={this.props.setCurrentAchiever} 
                             current_achiever={this.props.current_achiever}
                             />
 
@@ -64,9 +52,9 @@ class App extends Component {
                             <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
-                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} completeChore={this.completeChore} />) } />
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} />) } />
 
-                            <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} />) } />
+                            <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} achievers={this.props.achievers} />) } />
 
 
                             {/* Rewards Routes */}
@@ -86,6 +74,7 @@ class App extends Component {
     }
 }
 
+// ** Remove references to 'current_achiever' if stay with using sessionStorage **
 const mapStateToProps = state => {
     return ({
         chores: state.chores,
@@ -96,4 +85,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, 
-    { getChores, editChore, getRewards, getAchievers, createAchiever, setAchiever, editAchiever })(App);
+    { getChores, editChore, getRewards, getAchievers, createAchiever, setCurrentAchiever, editAchiever })(App);
