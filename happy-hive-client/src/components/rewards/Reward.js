@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+// import Alert from 'react-bootstrap/Alert';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -25,18 +27,24 @@ class Reward extends Component {
         const claimReward = () => {
              // comparison with '==' because current_user_id is a string, achiever.id is integer
             const rewardClaimer = achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)
-            rewardClaimer[0].points_earned -= reward.value
-
             const updatedAchiever = rewardClaimer[0]
-            this.props.editAchiever(updatedAchiever)
 
-            // set the sessionStorage.current_user_points to match updated achiever.points
-            sessionStorage.current_user_points = updatedAchiever.points_earned
+            if (updatedAchiever.points_earned >= reward.value)
+                {updatedAchiever.points_earned -= reward.value
+                this.props.editAchiever(updatedAchiever)
 
-            reward.claimed = true
-            this.props.editReward(reward)
+                // set the sessionStorage.current_user_points to match updated achiever.points
+                sessionStorage.current_user_points = updatedAchiever.points_earned
 
-            history.push('/rewards')
+                reward.claimed = true
+                this.props.editReward(reward)
+
+                history.push('/rewards')
+            } 
+                return(
+                    window.alert("You haven't earned enough points to claim this reward!")
+                )
+            
         }
 
         return (
