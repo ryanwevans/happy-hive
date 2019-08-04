@@ -23,14 +23,13 @@ const NavBar = (props) => {
 
         if (checkForAchiever(nameInput) !== false) {
             const foundAchiever = checkForAchiever(nameInput)
-            // props.setCurrentAchiever(foundAchiever)
             sessionStorage.setItem('current_user_name', foundAchiever.name)
             sessionStorage.setItem('current_user_id', foundAchiever.id)
             sessionStorage.setItem('current_user_points', foundAchiever.points_earned)
         } else {
             props.createAchiever({name: nameInput, points_earned: 0})
         }
-        props.history.push('/chores')
+        // props.history.push('/chores')
     }
 
     const handleOnLogout = event => {

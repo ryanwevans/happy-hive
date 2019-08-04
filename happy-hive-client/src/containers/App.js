@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores, editChore } from '../actions/chores';
-import { getRewards } from '../actions/rewards';
+import { getRewards, editReward } from '../actions/rewards';
 import { getAchievers, setCurrentAchiever, createAchiever, editAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
 import './App.css';
@@ -20,14 +20,6 @@ class App extends Component {
         this.props.getChores()
         this.props.getRewards()
         this.props.getAchievers()
-    }
-
-    claimReward(reward) {
-        reward.claimed = true;
-        this.props && console.log(this.props.current_achiever)
-        this.props.current_achiever.points_earned -= reward.points_value
-        this.props.editAchiever(this.props.current_achiever)
-        this.props.editReward(reward)
     }
 
     render() {
@@ -58,12 +50,13 @@ class App extends Component {
 
 
                             {/* Rewards Routes */}
+                                {/* ** Rename RewardForm to RewardNewForm ** */}
                             <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
 
                             <Route exact path='/rewards/:id' 
-                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} claimReward={this.claimReward}/>) } />
+                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} />) } />
 
-                            <Route exact path='/rewards' render={ routerProps => (<Rewards {...routerProps} rewards={this.props.rewards} />) } />
+                            <Route exact path='/rewards' render={ routerProps => (<Rewards {...routerProps} rewards={this.props.rewards} achievers={this.props.achievers} />) } />
 
                         </Switch>
                     </div>
@@ -85,4 +78,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, 
-    { getChores, editChore, getRewards, getAchievers, createAchiever, setCurrentAchiever, editAchiever })(App);
+    { getChores, editChore, getRewards, editReward, getAchievers, createAchiever, setCurrentAchiever, editAchiever })(App);

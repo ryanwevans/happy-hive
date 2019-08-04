@@ -39,16 +39,15 @@ export const createReward = reward => {
         return fetch(`${API_URL}/rewards`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ reward })
+            body: JSON.stringify( {reward} )
         })
         .then(response => response.json())
         .then(reward => {
             dispatch(addReward(reward))
             dispatch(resetRewardFormData())
         })
-        
         .catch(error => console.log(error))
     }
 }

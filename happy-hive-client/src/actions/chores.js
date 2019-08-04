@@ -64,7 +64,6 @@ export const editChore = chore => {
         })
         .then(response => response.json())
         .then(chore => {
-            console.log(chore) /* this does not log to the console */
             dispatch(updateChore(chore))
         })
         .catch(error => console.log(error))

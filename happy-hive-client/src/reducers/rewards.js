@@ -6,13 +6,13 @@ const rewardsReducer = (state = [], action) => {
             return action.rewards;
 
         case 'ADD_REWARD':
-            return state.concat(action.reward)
+            return state.concat(action.reward);
         
         case 'UPDATE_REWARD':
             const reward = action.reward
             return {
-                ...state.reward, reward
-            }
+                ...state.rewards, reward
+            };
 
         default:
             return state;
