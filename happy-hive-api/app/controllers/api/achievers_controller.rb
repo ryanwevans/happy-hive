@@ -20,7 +20,8 @@ class Api::AchieversController < ApplicationController
     end
 
     def update
-        if @achiever.update
+        # binding.pry
+        if @achiever.update(achiever_params)
             render json: @achiever
         else
             render json: { message: @achiever.errors }, status: 400

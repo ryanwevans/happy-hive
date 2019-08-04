@@ -26,10 +26,10 @@ export const setCurrentAchiever = (achiever) => {
     sessionStorage.setItem('current_user_name', achiever.name)
     sessionStorage.setItem('current_user_id', achiever.id)
     sessionStorage.setItem('current_user_points', achiever.points_earned)
-    return {
-        type: 'SET_CURRENT_ACHIEVER',
-        achiever
-    }
+    // return {
+    //     type: 'SET_CURRENT_ACHIEVER',
+    //     achiever
+    // }
 }
 
 export const clearCurrentAchiever = () => {
@@ -68,7 +68,6 @@ export const createAchiever = (achiever) => {
 }
 
 export const editAchiever = (achiever) => {
-    console.log(achiever)
     return dispatch => {
         return fetch(`${API_URL}/achievers/${achiever.id}`, {
             method: 'PATCH',

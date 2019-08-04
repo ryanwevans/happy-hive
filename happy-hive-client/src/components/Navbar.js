@@ -36,11 +36,9 @@ const NavBar = (props) => {
     const handleOnLogout = event => {
         event.preventDefault();
         sessionStorage.clear();
-        // props.setCurrentAchiever(null)
         props.history.push('/')
     }
 
-    console.log(props)
     return (
         <Navbar bg="dark" variant="dark" size="sm">
 

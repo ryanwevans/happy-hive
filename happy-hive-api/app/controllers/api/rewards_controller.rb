@@ -19,7 +19,7 @@ class Api::RewardsController < ApplicationController
     end
 
     def update
-        if @reward.update
+        if @reward.update(reward_params)
             render json: @reward
         else
             render json: { message: @reward.errors }, status: 400
