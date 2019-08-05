@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getChores, editChore } from '../actions/chores';
 import { getRewards, editReward } from '../actions/rewards';
-import { getAchievers, setCurrentAchiever, createAchiever, editAchiever } from '../actions/achievers';
+import { getAchievers, createAchiever, editAchiever } from '../actions/achievers';
 import NavBar from '../components/Navbar';
 import './App.css';
 
@@ -30,8 +30,7 @@ class App extends Component {
                     <div className="span-col-2">
                         <NavBar
                             achievers={this.props.achievers} 
-                            createAchiever={this.props.createAchiever} 
-                            setCurrentAchiever={this.props.setCurrentAchiever} 
+                            createAchiever={this.props.createAchiever}
                             current_achiever={this.props.current_achiever}
                             />
 
@@ -72,10 +71,9 @@ const mapStateToProps = state => {
     return ({
         chores: state.chores,
         rewards: state.rewards,
-        achievers: state.achievers.achievers,
-        current_achiever: state.achievers.current_achiever
+        achievers: state.achievers
     })
 }
 
 export default connect(mapStateToProps, 
-    { getChores, editChore, getRewards, editReward, getAchievers, createAchiever, setCurrentAchiever, editAchiever })(App);
+    { getChores, editChore, getRewards, editReward, getAchievers, createAchiever, editAchiever })(App);

@@ -9,14 +9,13 @@ const choresReducer = (state = [], action) => {
             return state.concat(action.chore);
 
         case 'UPDATE_CHORE':
-            const chore = action.chore
+            const updatedChore = action.chore
             return {
-                ...state.chores, chore
+                ...state.chores, updatedChore
             };
 
         default:
             return state;
-
     }
 }
 
