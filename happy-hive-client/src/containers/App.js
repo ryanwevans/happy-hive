@@ -31,7 +31,6 @@ class App extends Component {
                         <NavBar
                             achievers={this.props.achievers} 
                             createAchiever={this.props.createAchiever}
-                            current_achiever={this.props.current_achiever}
                             />
 
                         <Switch>
@@ -43,7 +42,7 @@ class App extends Component {
                             <Route exact path='/chores/new' render={ () => (<ChoreNewForm />) } />
 
                             <Route exact path='/chores/:id' 
-                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} />) } />
+                                render={ (routerProps) => (<Chore {...routerProps} chores={this.props.chores} achievers={this.props.achievers} />) } />
 
                             <Route exact path='/chores' render={ routerProps => (<Chores {...routerProps} chores={this.props.chores} achievers={this.props.achievers} />) } />
 
@@ -53,7 +52,7 @@ class App extends Component {
                             <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
 
                             <Route exact path='/rewards/:id' 
-                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} />) } />
+                                render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} achievers={this.props.achievers} />) } />
 
                             <Route exact path='/rewards' render={ routerProps => (<Rewards {...routerProps} rewards={this.props.rewards} achievers={this.props.achievers} />) } />
 

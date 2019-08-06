@@ -10,9 +10,9 @@ const rewardsReducer = (state = [], action) => {
         
         case 'UPDATE_REWARD':
             const reward = action.reward
-            return {
+            return [
                 ...state.rewards, reward
-            };
+            ];
 
         default:
             return state;

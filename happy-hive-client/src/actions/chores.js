@@ -26,11 +26,15 @@ const updateChore = chore => {
 
 // ** Async Actions **
 export const getChores = () => {
-    return dispatch => {
-        return fetch(`${API_URL}/chores`)
-            .then(response => response.json())
-            .then(chores => dispatch(fetchChores(chores)))
-            .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/chores`);
+            const chores = await response.json();
+            return dispatch(fetchChores(chores));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 

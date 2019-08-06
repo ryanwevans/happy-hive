@@ -10,9 +10,9 @@ const choresReducer = (state = [], action) => {
 
         case 'UPDATE_CHORE':
             const updatedChore = action.chore
-            return {
+            return [
                 ...state.chores, updatedChore
-            };
+            ];
 
         default:
             return state;

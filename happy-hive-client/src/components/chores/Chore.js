@@ -11,11 +11,12 @@ import { editChore } from '../../actions/chores';
 class Chore extends Component { 
     
     render() {
-        const { location, history } = this.props;
-        
-        const chore = location.choreProps;
+        // I pass 'achievers' as props through the Route in App, but it is 'undefined' here (why?), so I am passing 'achievers' as 'location' props.
+        const { choreProps, achieversProps } = this.props.location;
+        const chore = choreProps;
+        const achievers = achieversProps;
 
-        const achievers = this.props.achievers;
+        console.log(this.props)
 
         const handleButtonClick = (event) => {
             event.preventDefault();
@@ -23,8 +24,10 @@ class Chore extends Component {
         }
 
         const completeChore = () => {
+
             // comparison with '==' because current_user_id is a string, achiever.id is integer
-            const choreCompleter = achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)
+            const choreCompleter = achievers && achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)
+            console.log(choreCompleter)
             choreCompleter[0].points_earned += chore.points_value
 
             const updatedAchiever = choreCompleter[0]
@@ -36,7 +39,7 @@ class Chore extends Component {
             chore.complete = true
             this.props.editChore(chore)
 
-            history.push('/chores');
+            this.props.history.push('/chores');
         }
         
         return (

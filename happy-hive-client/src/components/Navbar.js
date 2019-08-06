@@ -29,7 +29,7 @@ const NavBar = (props) => {
         } else {
             props.createAchiever({name: nameInput, points_earned: 0})
         }
-        // props.history.push('/chores')
+        props.history.push('/')
     }
 
     const handleOnLogout = event => {
