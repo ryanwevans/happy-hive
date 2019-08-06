@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { withRouter } from  'react-router-dom';
 import { createReward } from '../../actions/rewards';
@@ -23,47 +25,37 @@ class RewardForm extends Component {
         const { name, description, value } = this.props.rewardFormData 
         return (
             <div>
-                <div className="RewardForm">
-                <br/>
-                <h3>New Reward</h3>
-                <br/>
-                <form onSubmit={this.handleOnSubmit}>
-                    <div>
-                        <label htmlFor="name">Reward Name: 
-                        <input type="text" name="name" value={name} onChange={this.handleOnChange} />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="description">Description: 
-                        <textarea
-                            //  type="textarea" 
-                             rows="3"
-                             cols="22"
-                             name="description" 
-                             value={description} 
-                             onChange={this.handleOnChange} 
-                         />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="value">Value: 
-                        <input type="text" name="value" value={value} onChange={this.handleOnChange} />
-                        </label>
-                    </div>
-                    
-                    {/* <div>
-                        <input type="hidden" name="claimed" value={claimed} />
-                    </div> */}
-                    {/* <div>
-                        <label htmlFor="claimed_by">Claimed By: 
-                        <input type="text" name="claimed_by" value={claimed_by} onChange={this.handleOnChange} />
-                        </label>
-                    </div> */}
+                <div className="RewardFormContainer">
                     <br/>
-                    <button type="submit">Add Reward</button>
-                </form>
+                    <h3>New Reward</h3>
+                    <br/>
+                    <Form onSubmit={this.handleOnSubmit} className="RewardForm">
+                        <div>
+                        <Form.Group controlId="formGroupRewardName">
+                            <Form.Label className="FormLabels">Reward Name</Form.Label>
+                            <Form.Control size="sm" type="text" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter reward name" />
+                        </Form.Group>
+                        </div>
+                        <div>
+                        <Form.Group controlId="ControlTextareaDescription">
+                            <Form.Label className="FormLabels">Description</Form.Label>
+                            <Form.Control size="sm" as="textarea" rows="3" name="description" value={description} 
+                                onChange={this.handleOnChange} placeholder="Enter description" />
+                        </Form.Group>
+                        </div>
+                        <div>
+                        <Form.Group controlId="formGroupPointsValue">
+                            <Form.Label className="FormLabels">Value</Form.Label>
+                            <br/>
+                            <Form.Control className="ValueInput" size="sm" type="textarea" name="value" value={value} onChange={this.handleOnChange} />
+                        </Form.Group>
+                        </div>
+                        <br/>
+                        <Button size="xs" variant="outline-info" type="submit">
+                            Add Reward
+                        </Button>
+
+                    </Form>
                 </div>
             </div>
         )

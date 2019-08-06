@@ -52,19 +52,28 @@
 .ChoreForm {
     display: inline-block;
     width: 80%;
+    max-width: 400px;
+    text-align: center;
     align-content: center;
 }
 
 .FormLabels {
+    display: inline;
+    text-align: center;
+    align-content: center;
+}
+
+.PointsInput {
+    width: 30%;
     display: inline-block;
     text-align: center;
+    align-content: center;
 }
 
 label {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    text-align: right;
     width: 400px;
     line-height: 26px;
     margin-bottom: 10px;

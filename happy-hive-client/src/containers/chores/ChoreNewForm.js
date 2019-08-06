@@ -26,9 +26,9 @@ class ChoreNewForm extends Component {
         return (
             <div>
                 <div className="ChoreFormContainer">
-                <br/>
-                <h3>New Chore</h3>
-                <br/>
+                    <br/>
+                    <h3>New Chore</h3>
+                    <br/>
                     <Form onSubmit={this.handleOnSubmit} className="ChoreForm">
                         <div>
                         <Form.Group controlId="formGroupChoreName">
@@ -46,44 +46,15 @@ class ChoreNewForm extends Component {
                         <div>
                         <Form.Group controlId="formGroupPointsValue">
                             <Form.Label className="FormLabels">Points Value</Form.Label>
-                            <Form.Control size="sm" type="textarea" rows="1" cols="11" name="points_value" value={points_value} onChange={this.handleOnChange} placeholder="Points value" />
+                            <br/>
+                            <Form.Control className="PointsInput" size="sm" type="textarea" name="points_value" value={points_value} onChange={this.handleOnChange} />
                         </Form.Group>
                         </div>
                         <br/>
                         <Button size="xs" variant="outline-info" type="submit">
                             Add Chore
                         </Button>
-
                     </Form>
-                {/* <form onSubmit={this.handleOnSubmit}>
-                    <div>
-                        <label htmlFor="name">Chore Name: 
-                        <textarea rows="1" cols="100%" name="name" value={name} onChange={this.handleOnChange} />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="description">Description: 
-                        <textarea 
-                            rows="3" 
-                            cols="22"
-                            name="description" 
-                            value={description} 
-                            onChange={this.handleOnChange} 
-                        />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="points_value">Points Value: 
-                        <input type="text" name="points_value" value={points_value} onChange={this.handleOnChange} />
-                        </label>
-                    </div>
-                    <br/>
-                    <Button size="xs" variant="outline-info" type="submit">
-                        Add Chore
-                    </Button>
-                </form> */}
                 </div>
             </div>
         )
