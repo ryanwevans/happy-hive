@@ -57,7 +57,7 @@ export const createAchiever = (achiever) => {
         .then(response => response.json())
         .then(achiever => { 
             dispatch(addAchiever(achiever))
-            dispatch(setCurrentAchiever(achiever))
+            setCurrentAchiever(achiever)
         })
         .catch(error => console.log(error))
     }

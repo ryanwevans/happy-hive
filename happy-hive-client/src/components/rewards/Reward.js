@@ -11,11 +11,12 @@ import { editReward } from '../../actions/rewards';
 class Reward extends Component {
 
     render() {
-        const { location, history } = this.props;
-        
-        const reward = location.rewardProps;
+        // I pass 'achievers' as props through the Route in App, but it is 'undefined' here (why?), so I am passing 'achievers' as 'location' props.
+        const { rewardProps, achieversProps } = this.props.location;
+        const reward = rewardProps;
+        const achievers = achieversProps;
 
-        const achievers = this.props.achievers;
+        const { editAchiever, editReward, history } = this.props
 
         const handleButtonClick = (event) => {
             event.preventDefault();
@@ -29,13 +30,13 @@ class Reward extends Component {
 
             if (updatedAchiever.points_earned >= reward.value)
                 {updatedAchiever.points_earned -= reward.value
-                this.props.editAchiever(updatedAchiever)
+                editAchiever(updatedAchiever)
 
                 // set the sessionStorage.current_user_points to match updated achiever.points
                 sessionStorage.current_user_points = updatedAchiever.points_earned
 
                 reward.claimed = true
-                this.props.editReward(reward)
+                editReward(reward)
 
                 history.push('/rewards')
             } 

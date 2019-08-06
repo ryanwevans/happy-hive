@@ -9,9 +9,9 @@ const rewardsReducer = (state = [], action) => {
             return state.concat(action.reward);
         
         case 'UPDATE_REWARD':
-            const reward = action.reward
+            const updatedReward = action.reward
             return [
-                ...state.rewards, reward
+                ...state.rewards, updatedReward
             ];
 
         default:

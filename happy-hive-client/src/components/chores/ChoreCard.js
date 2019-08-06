@@ -6,7 +6,6 @@ class ChoreCard extends Component {
 
     render() {
         const { chore, achievers } = this.props;
-        console.log(achievers)
 
         return (
             <div className="ChoreCard">

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { createChore } from '../../actions/chores'
 import { withRouter } from 'react-router-dom';
@@ -23,20 +25,52 @@ class ChoreNewForm extends Component {
         const { name, description, points_value } = this.props.choreFormData 
         return (
             <div>
-                <div className="ChoreForm">
+                <div className="ChoreFormContainer">
                 <br/>
                 <h3>New Chore</h3>
                 <br/>
-                <form onSubmit={this.handleOnSubmit}>
+                    <Form onSubmit={this.handleOnSubmit} className="ChoreForm">
+                        <div>
+                        <Form.Group controlId="formGroupChoreName">
+                            <Form.Label className="FormLabels">Chore Name</Form.Label>
+                            <Form.Control size="sm" type="text" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter chore name" />
+                        </Form.Group>
+                        </div>
+                        <div>
+                        <Form.Group controlId="ControlTextareaDescription">
+                            <Form.Label className="FormLabels">Description</Form.Label>
+                            <Form.Control size="sm" as="textarea" rows="3" name="description" value={description} 
+                                onChange={this.handleOnChange} placeholder="Enter description" />
+                        </Form.Group>
+                        </div>
+                        <div>
+                        <Form.Group controlId="formGroupPointsValue">
+                            <Form.Label className="FormLabels">Points Value</Form.Label>
+                            <Form.Control size="sm" type="textarea" rows="1" cols="11" name="points_value" value={points_value} onChange={this.handleOnChange} placeholder="Points value" />
+                        </Form.Group>
+                        </div>
+                        <br/>
+                        <Button size="xs" variant="outline-info" type="submit">
+                            Add Chore
+                        </Button>
+
+                    </Form>
+                {/* <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label htmlFor="name">Chore Name: 
-                        <input type="text" name="name" value={name} onChange={this.handleOnChange} />
+                        <textarea rows="1" cols="100%" name="name" value={name} onChange={this.handleOnChange} />
                         </label>
                     </div>
                     
                     <div>
                         <label htmlFor="description">Description: 
-                        <input type="textarea" name="description" value={description} onChange={this.handleOnChange} />
+                        <textarea 
+                            rows="3" 
+                            cols="22"
+                            name="description" 
+                            value={description} 
+                            onChange={this.handleOnChange} 
+                        />
                         </label>
                     </div>
                     
@@ -45,21 +79,11 @@ class ChoreNewForm extends Component {
                         <input type="text" name="points_value" value={points_value} onChange={this.handleOnChange} />
                         </label>
                     </div>
-                    
-                    {/* <div>
-                        <label htmlFor="assigned_to">Assigned To: 
-                        <input type="text" name="assigned_to" value={assigned_to} onChange={this.handleOnChange} />
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="complete">Complete? 
-                        <input type="checkbox" name="complete" value={complete} onChange={this.handleOnChange} />
-                        </label>
-                    </div> */}
                     <br/>
-                    <button type="submit">Add Chore</button>
-                </form>
+                    <Button size="xs" variant="outline-info" type="submit">
+                        Add Chore
+                    </Button>
+                </form> */}
                 </div>
             </div>
         )

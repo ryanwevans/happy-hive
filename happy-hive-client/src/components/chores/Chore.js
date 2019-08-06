@@ -16,7 +16,7 @@ class Chore extends Component {
         const chore = choreProps;
         const achievers = achieversProps;
 
-        console.log(this.props)
+        const { editAchiever, editChore, history } = this.props;
 
         const handleButtonClick = (event) => {
             event.preventDefault();
@@ -24,22 +24,20 @@ class Chore extends Component {
         }
 
         const completeChore = () => {
-
             // comparison with '==' because current_user_id is a string, achiever.id is integer
-            const choreCompleter = achievers && achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)
-            console.log(choreCompleter)
-            choreCompleter[0].points_earned += chore.points_value
-
+            const choreCompleter = achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)
             const updatedAchiever = choreCompleter[0]
-            this.props.editAchiever(updatedAchiever)
+            
+            updatedAchiever.points_earned += chore.points_value
+            editAchiever(updatedAchiever)
 
             // set the sessionStorage.current_user_points to match updated achiever.points
             sessionStorage.current_user_points = updatedAchiever.points_earned
 
             chore.complete = true
-            this.props.editChore(chore)
+            editChore(chore)
 
-            this.props.history.push('/chores');
+            history.push('/chores');
         }
         
         return (

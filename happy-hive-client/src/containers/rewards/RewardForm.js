@@ -36,7 +36,14 @@ class RewardForm extends Component {
                     
                     <div>
                         <label htmlFor="description">Description: 
-                        <input type="textarea" name="description" value={description} onChange={this.handleOnChange} />
+                        <textarea
+                            //  type="textarea" 
+                             rows="3"
+                             cols="22"
+                             name="description" 
+                             value={description} 
+                             onChange={this.handleOnChange} 
+                         />
                         </label>
                     </div>
                     
