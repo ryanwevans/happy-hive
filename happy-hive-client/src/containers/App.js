@@ -8,10 +8,10 @@ import NavBar from '../components/Navbar';
 import './App.css';
 
 import Chores from '../components/chores/Chores';
-import Chore from '../components/chores/Chore';
+import Chore from './chores/Chore';
 import ChoreNewForm from './chores/ChoreNewForm';
 import Rewards from '../components/rewards/Rewards';
-import Reward from '../components/rewards/Reward';
+import Reward from './rewards/Reward';
 import RewardForm from './rewards/RewardForm';
 
 class App extends Component {
