@@ -45,9 +45,9 @@ const NavBar = (props) => {
 
             <Navbar className="mr-auto">
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
-                <NavLink style={{ marginRight: '20px' }} to='/chores/new'>Add Chore</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
-                <NavLink style={{ marginRight: '20px' }} to='/rewards/new'>Add Reward</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/chores/new'><em>Add Chore</em></NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/rewards/new'><em>Add Reward</em></NavLink>
             </Navbar>
              
             {/* Load 'sign in' form or display signed in user and 'log out' button */}
@@ -56,7 +56,7 @@ const NavBar = (props) => {
                 <Navbar bg="dark" variant="dark">
                 <Form inline onSubmit={handleOnLogout}>
                     <InputGroup size="xs" variant="dark">
-                        <Button size="xs" variant="outline-info" type="submit">Logout</Button>
+                        
                         <Navbar className="justify-content">
                             <React.Fragment>
                                 <Navbar.Text>
@@ -67,6 +67,7 @@ const NavBar = (props) => {
                                 </Navbar.Text>
                             </React.Fragment>
                         </Navbar>
+                        <Button size="xs" variant="outline-info" type="submit">Logout</Button>
                     </InputGroup>
                 </Form>
                 </Navbar>
