@@ -33,7 +33,7 @@ class RewardForm extends Component {
                         <div>
                         <Form.Group controlId="formGroupRewardName">
                             <Form.Label className="FormLabels">Reward Name</Form.Label>
-                            <Form.Control size="sm" type="text" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter reward name" />
+                            <Form.Control size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter reward name" />
                         </Form.Group>
                         </div>
                         <div>
@@ -47,7 +47,7 @@ class RewardForm extends Component {
                         <Form.Group controlId="formGroupPointsValue">
                             <Form.Label className="FormLabels">Value</Form.Label>
                             <br/>
-                            <Form.Control className="ValueInput" size="sm" type="textarea" name="value" value={value} onChange={this.handleOnChange} placeholder="Points value" />
+                            <Form.Control className="ValueInput" size="sm" as="textarea" rows="1" name="value" value={value} onChange={this.handleOnChange} placeholder="Points value" />
                         </Form.Group>
                         </div>
                         <br/>

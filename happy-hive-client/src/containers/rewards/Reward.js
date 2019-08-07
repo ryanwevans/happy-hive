@@ -39,11 +39,11 @@ class Reward extends Component {
                 editReward(reward)
 
                 history.push('/rewards')
-            } 
+            } else {
                 return(
-                    window.alert("You haven't earned enough points to claim this reward!")
+                    window.alert("Sorry, you haven't earned enough points to claim this reward")
                 )
-            
+            }
         }
 
         return (

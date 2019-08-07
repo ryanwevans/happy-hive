@@ -1,7 +1,7 @@
 const initialState = {
     name: '',
     description: '',
-    points_value: 0,
+    points_value: null,
     assigned_to: '',
     complete: false
 }

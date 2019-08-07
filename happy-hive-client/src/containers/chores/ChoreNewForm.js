@@ -33,7 +33,7 @@ class ChoreNewForm extends Component {
                         <div>
                         <Form.Group controlId="formGroupChoreName">
                             <Form.Label className="FormLabels">Chore Name</Form.Label>
-                            <Form.Control size="sm" type="text" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter chore name" />
+                            <Form.Control size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter chore name" />
                         </Form.Group>
                         </div>
                         <div>
@@ -47,7 +47,7 @@ class ChoreNewForm extends Component {
                         <Form.Group controlId="formGroupPointsValue">
                             <Form.Label className="FormLabels">Points Value</Form.Label>
                             <br/>
-                            <Form.Control className="PointsInput" size="sm" type="textarea" name="points_value" value={points_value} onChange={this.handleOnChange} />
+                            <Form.Control className="PointsInput" size="sm" as="textarea" rows="1" name="points_value" value={points_value} onChange={this.handleOnChange} placeholder="Points value" />
                         </Form.Group>
                         </div>
                         <br/>
