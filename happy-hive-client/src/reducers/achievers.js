@@ -3,7 +3,6 @@ const achieversReducer = (state = [], action) => {
     switch(action.type) {
 
         case 'FETCH_ACHIEVERS':
-            console.log(action.achievers)
             return action.achievers;
 
         case 'ADD_ACHIEVER':

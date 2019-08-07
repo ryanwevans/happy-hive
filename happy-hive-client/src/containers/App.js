@@ -13,6 +13,7 @@ import ChoreNewForm from './chores/ChoreNewForm';
 import Rewards from '../components/rewards/Rewards';
 import Reward from './rewards/Reward';
 import RewardForm from './rewards/RewardForm';
+import Achievers from '../components/achievers/Achievers';
 
 class App extends Component {
 
@@ -23,7 +24,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Router>
                 <div className="grid App" id="App">
@@ -55,6 +55,9 @@ class App extends Component {
                                 render={ (routerProps) => (<Reward {...routerProps} rewards={this.props.rewards} achievers={this.props.achievers} />) } />
 
                             <Route exact path='/rewards' render={ routerProps => (<Rewards {...routerProps} rewards={this.props.rewards} achievers={this.props.achievers} />) } />
+                            
+                            {/* Achievers Route */}
+                            <Route exact path='/achievers' render={ routerProps => (<Achievers {...routerProps} achievers={this.props.achievers} />) } />
 
                         </Switch>
                     </div>

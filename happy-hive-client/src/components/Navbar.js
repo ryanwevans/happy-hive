@@ -29,7 +29,7 @@ const NavBar = (props) => {
         } else {
             props.createAchiever({name: nameInput, points_earned: 0})
         }
-        props.history.push('/')
+        props.history.push('/chores')
     }
 
     const handleOnLogout = event => {
@@ -46,6 +46,7 @@ const NavBar = (props) => {
             <Navbar size="xs" className="mr-auto">
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
+                <NavLink style={{ marginRight: '20px' }} to='/achievers'>Achievers</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/chores/new'><em>Add Chore</em></NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards/new'><em>Add Reward</em></NavLink>
             </Navbar>
