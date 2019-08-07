@@ -39,11 +39,11 @@ const NavBar = (props) => {
     }
 
     return (
-        <Navbar bg="dark" variant="dark" size="sm">
+        <Navbar fixed="top" bg="dark" variant="dark" size="xs" style={{ height: '74px' }}>
 
             <Navbar.Brand href="/">Happy Hive</Navbar.Brand>
 
-            <Navbar className="mr-auto">
+            <Navbar size="xs" className="mr-auto">
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/chores/new'><em>Add Chore</em></NavLink>
@@ -53,9 +53,9 @@ const NavBar = (props) => {
             {/* Load 'sign in' form or display signed in user and 'log out' button */}
             { sessionStorage.current_user_name
             ? <React.Fragment>
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="dark" variant="dark" style={{ height: '70px' }}>
                 <Form inline onSubmit={handleOnLogout}>
-                    <InputGroup size="xs" variant="dark">
+                    <InputGroup style={{ height: '70px' }} size="xs" variant="dark">
                         
                         <Navbar className="justify-content">
                             <React.Fragment>
@@ -67,25 +67,23 @@ const NavBar = (props) => {
                                 </Navbar.Text>
                             </React.Fragment>
                         </Navbar>
-                        <Button size="xs" variant="outline-info" type="submit">Logout</Button>
+                        <Button style={{ height: '25px', marginTop: '21px' }} size="sm" variant="outline-info" type="submit">Logout</Button>
                     </InputGroup>
                 </Form>
                 </Navbar>
              </React.Fragment>
-            : <Navbar bg="dark" variant="dark">
+            : <Navbar style={{ height: '70px' }} bg="dark" variant="dark">
                 <Form inline onSubmit={handleOnSubmit}>
-                    <InputGroup size="sm">
-                        <InputGroup.Prepend size="sm">
-                            <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                        </InputGroup.Prepend>
+                    <InputGroup style={{ height: '70px' }} size="sm">
                         <FormControl
+                            style={{ height: '25px', marginTop: '21px', marginRight: '3px' }}
                             type="text"
                             name="name"
                             placeholder="Username"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
                         />
-                        <Button size="sm" variant="outline-info" type="submit">Sign In</Button>
+                        <Button style={{ height: '25px', marginTop: '21px', paddingBottom: '2px' }} size="sm" variant="outline-info" type="submit">Sign In</Button>
                     </InputGroup>
                 </Form>
             </Navbar>
