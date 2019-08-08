@@ -16,7 +16,7 @@ class ChoreCard extends Component {
                     achieversProps: achievers
                     }} >
                     <div>
-                        <h4>{chore.name}</h4>
+                        <h4><em>{chore.name}</em></h4>
                         <p>{chore.description}</p>
                         <p><em>Points: {chore.points_value}</em></p>
                     </div>

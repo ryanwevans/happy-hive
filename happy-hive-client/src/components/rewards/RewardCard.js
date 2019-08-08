@@ -16,7 +16,7 @@ class RewardCard extends Component {
                     achieversProps: achievers
                     }}>
                     <div>
-                        <h4>{reward.name}</h4>
+                        <h4><em>{reward.name}</em></h4>
                         <p>{reward.description}</p>
                         <p><em>Value: {reward.value}</em></p>
                     </div>
