@@ -11,9 +11,9 @@ class AchieverCard extends Component {
 
                 <div>
                     <br/>
-                    <h4>{achiever.name}</h4>
+                    <h4><em>{achiever.name}</em></h4>
                     <br/>
-                    <p><em>Points: {achiever.points_earned}</em></p>
+                    <p>Points: {achiever.points_earned}</p>
                 </div>
                 
             </div>

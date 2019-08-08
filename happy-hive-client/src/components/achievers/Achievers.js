@@ -5,10 +5,9 @@ class Achievers extends Component {
 
     render() {
         const { achievers } = this.props;
-        console.log(achievers)
         return (
             <div className="AchieverCardContainer">
-                <h3><em>Achievers</em></h3>
+                <h3 className="AchieversPageTitle">Achievers</h3>
                 <br/>
                 { achievers.map( achiever => {
                     return (

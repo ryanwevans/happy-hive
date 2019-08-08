@@ -85,3 +85,8 @@ input {
     flex: 0 0 200px;
     margin-left: 10px;
 }
+
+.RewardsPageTitle {
+    font-family: 'Cookie', cursive;
+    font-size: 60px;
+}

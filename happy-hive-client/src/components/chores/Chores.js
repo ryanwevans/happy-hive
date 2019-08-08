@@ -7,7 +7,7 @@ class Chores extends Component {
     render() {
         return (
             <div className="ChoreCardContainer">
-                <h3>Chores</h3>
+                <h3 className="ChoresPageTitle">Chores</h3>
                 <Button variant="outline-info" size="sm" href="/chores/new">New Chore</Button>
                 <br/>
                 <br/>

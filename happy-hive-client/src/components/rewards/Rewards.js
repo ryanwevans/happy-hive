@@ -7,7 +7,7 @@ class Rewards extends Component {
     render() {
         return (
             <div className="RewardCardContainer">
-                <h3>Rewards</h3>
+                <h3 className="RewardsPageTitle">Rewards</h3>
                 <Button variant="outline-info" size="sm" href="/rewards/new">New Reward</Button>
                 <br/>
                 <br/>
