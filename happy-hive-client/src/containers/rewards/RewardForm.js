@@ -29,7 +29,7 @@ class RewardForm extends Component {
             <div>
                 <div className="RewardFormContainer">
                     <br/>
-                    <h3>New Reward</h3>
+                    <h3 className="NewRewardFormTitle">New Reward</h3>
                     <br/>
                     <Form onSubmit={this.handleOnSubmit} className="RewardForm">
                         <div>

@@ -29,7 +29,7 @@ class ChoreNewForm extends Component {
             <div>
                 <div className="ChoreFormContainer">
                     <br/>
-                    <h3>New Chore</h3>
+                    <h3 className="NewChoreFormTitle">New Chore</h3>
                     <br/>
                     <Form onSubmit={this.handleOnSubmit} className="ChoreForm">
                         <div>

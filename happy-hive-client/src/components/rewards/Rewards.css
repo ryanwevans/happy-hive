@@ -23,7 +23,8 @@
 }
 
 .RewardCard:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+    box-shadow: 0 14px 28px rgba(190, 187, 6, 0.25), 0 10px 10px rgba(190, 187, 6,0.22);
 }
 
 .RewardItem {
@@ -56,6 +57,12 @@
     max-width: 400px;
     text-align: center;
     align-content: center;
+}
+
+.NewRewardFormTitle {
+    font-family: 'Rochester', cursive;
+    font-size: 50px;
+    color: #f5f858cc !important;
 }
 
 .FormLabels {
