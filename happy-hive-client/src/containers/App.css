@@ -26,14 +26,13 @@
 }
 
 .App-link {
-  color: rgba(232, 233, 227, 0.897);
+  color: rgba(234, 235, 233, 0.897);
 }
 
 .HappyHiveText {
   font-family: 'Cookie', cursive;
   font-size: 96px;
 }
-
 .HappyHiveBrand {
   font-family: 'Cookie', cursive;
   font-size: 40px;
@@ -50,13 +49,23 @@
   grid-column: span 2 / auto;
 }
 
+
 .mr-auto a {
-  color: #e8e9e3e5;
+  color: #f8f8f5e5;
   text-decoration: none;
 }
+.mr-auto a:hover {
+  color: #f5f858cc;
+  text-decoration: none;
+}
+.welcome {
+  color: #f5f858cc;
+}
+
 
 .points {
   font-size: 13px;
+  color: #f8f8f5e5;
 }
 
 

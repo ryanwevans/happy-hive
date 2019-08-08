@@ -63,7 +63,7 @@ const NavBar = (props) => {
                                 <Navbar.Text>
                                 <div className="welcome">
                                     Welcome, <strong>{sessionStorage.current_user_name}</strong><br/>
-                                    <em className="points">points: {sessionStorage.current_user_points}</em>
+                                    <em className="points">You have  {sessionStorage.current_user_points} points</em>
                                 </div>
                                 </Navbar.Text>
                             </React.Fragment>
