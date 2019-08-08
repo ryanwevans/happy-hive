@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
 
 import { editAchiever } from '../../actions/achievers';
 import { editReward } from '../../actions/rewards';

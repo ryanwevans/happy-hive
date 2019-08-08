@@ -87,6 +87,10 @@ input {
 }
 
 .ChoresPageTitle {
-    font-family: 'Cookie', cursive;
-    font-size: 60px;
+    /* font-family: 'Cookie', cursive;
+    font-size: 60px; */
+    /* font-family: 'Alex Brush', cursive; */
+    font-family: 'Rochester', cursive;
+    font-size: 54px;
+    -webkit-text-stroke: .10px rgb(245, 248, 88, 0.8);
 }

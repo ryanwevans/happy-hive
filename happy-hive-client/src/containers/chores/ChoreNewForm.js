@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { connect } from 'react-redux';
+
 import { createChore } from '../../actions/chores'
-import { withRouter } from 'react-router-dom';
 import { updateChoreFormData } from '../../actions/choreForm'
 
 class ChoreNewForm extends Component {

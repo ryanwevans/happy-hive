@@ -30,12 +30,18 @@
 }
 
 .HappyHiveText {
-  font-family: 'Cookie', cursive;
+  /* font-family: 'Cookie', cursive;
   font-size: 96px;
+  font-family: 'Alex Brush', cursive; */
+  font-family: 'Rochester', cursive;
+  font-size: 84px;
 }
 .HappyHiveBrand {
-  font-family: 'Cookie', cursive;
+  /* font-family: 'Cookie', cursive;
   font-size: 40px;
+  font-family: 'Alex Brush', cursive; */
+  font-family: 'Rochester', cursive;
+  font-size: 34px;
   color: #f5f858cc !important;
 }
 

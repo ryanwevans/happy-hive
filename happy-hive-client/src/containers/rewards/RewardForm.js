@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { withRouter } from  'react-router-dom';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 import { createReward } from '../../actions/rewards';
 import { updateRewardFormData } from '../../actions/rewardForm';
 
