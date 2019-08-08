@@ -35,7 +35,50 @@ class App extends Component {
 
                         <Switch>
                             
-                            <Route exact path='/' render={ () => <div><br/><br/><br/><h1>~  Welcome to Happy Hive  ~</h1></div>} />
+                            <Route exact path='/' render={ () => 
+                                <React.Fragment>
+                                    <div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <h1>~  Happy Hive  ~</h1>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <br/>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                    <div id="hex1" className="hexagon-wrapper">
+                                        <div id="color1" className="hexagon"></div>
+                                    </div>
+                                </React.Fragment>
+                            } />
 
 
                             {/* Chores Routes */}

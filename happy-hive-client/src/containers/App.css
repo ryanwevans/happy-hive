@@ -29,6 +29,11 @@
   color: rgba(232, 233, 227, 0.897);
 }
 
+NavLink a:hover {
+  color: #e0381a !important;
+  cursor: pointer;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -47,3 +52,53 @@
 .points {
   font-size: 13px;
 }
+
+
+/* Working on creating hexagons as hives */
+#hex1 {
+
+  animation: infinite 20s linear;
+  width: 100px;
+  height: 100px;
+}
+
+#color1 {
+  background-color: #f5f858; 
+  /* background-color: rgb(224, 122, 26);  */
+}
+
+.hexagon-wrapper {
+  text-align: center;
+  margin: 20px;
+  position: relative;
+  display: inline-block;
+}
+  
+.hexagon {
+  height: 100%;
+  width: calc(100% * 0.57735);
+  display: inline-block;
+}
+
+.hexagon:before {
+  position: absolute;
+  top: 0;
+  right: calc((100% / 2) - ((100% * 0.57735) / 2));
+  background-color: inherit;
+  height: inherit;
+  width: inherit;
+  content: '';
+  transform: rotateZ(60deg);
+}
+  
+.hexagon:after {
+  position: absolute;
+  top: 0;
+  right: calc((100% / 2) - ((100% * 0.57735) / 2));
+  background-color: inherit;
+  height: inherit;
+  width: inherit;
+  content: '';
+  transform: rotateZ(-60deg);
+}
+    
