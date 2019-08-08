@@ -41,7 +41,7 @@ const NavBar = (props) => {
     return (
         <Navbar fixed="top" bg="dark" variant="dark" size="xs" style={{ height: '74px', minWidth: '665px' }}>
 
-            <Navbar.Brand href="/">Happy Hive</Navbar.Brand>
+            <Navbar.Brand className="HappyHiveBrand" href="/">Happy Hive</Navbar.Brand>
 
             <Navbar size="xs" className="mr-auto" style={{ /*width: '60%'*/ }}>
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>

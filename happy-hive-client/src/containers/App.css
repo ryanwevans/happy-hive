@@ -29,9 +29,15 @@
   color: rgba(232, 233, 227, 0.897);
 }
 
-NavLink a:hover {
-  color: #e0381a !important;
-  cursor: pointer;
+.HappyHiveText {
+  font-family: 'Cookie', cursive;
+  font-size: 96px;
+}
+
+.HappyHiveBrand {
+  font-family: 'Cookie', cursive;
+  font-size: 40px;
+  color: #f5f858cc !important;
 }
 
 .grid {

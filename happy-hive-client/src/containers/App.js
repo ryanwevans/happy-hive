@@ -50,7 +50,7 @@ class App extends Component {
                                     <div id="hex1" className="hexagon-wrapper">
                                         <div id="color1" className="hexagon"></div>
                                     </div>
-                                    <h1>~  Happy Hive  ~</h1>
+                                    <h1 className="HappyHiveText">~  Happy Hive  ~</h1>
                                     </div>
                                     <div id="hex1" className="hexagon-wrapper">
                                         <div id="color1" className="hexagon"></div>
