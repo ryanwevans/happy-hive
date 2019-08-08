@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 import RewardCard from './RewardCard';
 
 class Rewards extends Component {
@@ -7,6 +8,8 @@ class Rewards extends Component {
         return (
             <div className="RewardCardContainer">
                 <h3>Rewards</h3>
+                <Button variant="outline-info" size="sm" href="/rewards/new">New Reward</Button>
+                <br/>
                 <br/>
                 { this.props.rewards.filter( reward => reward.claimed === false )
                     .map( reward => {

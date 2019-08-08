@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 import ChoreCard from './ChoreCard';
 
 class Chores extends Component {
@@ -7,6 +8,8 @@ class Chores extends Component {
         return (
             <div className="ChoreCardContainer">
                 <h3>Chores</h3>
+                <Button variant="outline-info" size="sm" href="/chores/new">New Chore</Button>
+                <br/>
                 <br/>
                 { this.props.chores.filter( chore => chore.complete === false )
                     .map( chore => {
