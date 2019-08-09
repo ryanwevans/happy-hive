@@ -39,7 +39,7 @@ const NavBar = (props) => {
     }
 
     return (
-        <Navbar fixed="top" bg="dark" variant="dark" size="xs" style={{ height: '74px', minWidth: '665px' }}>
+        <Navbar fixed="top" bg="dark" variant="dark" size="xs" style={{ height: '74px', minWidth: '716px' }}>
 
             <Navbar.Brand className="HappyHiveBrand" href="/">Happy Hive</Navbar.Brand>
 

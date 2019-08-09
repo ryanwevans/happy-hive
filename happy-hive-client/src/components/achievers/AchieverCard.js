@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Achievers.css';
+import Image from 'react-bootstrap/Image';
+// import './HappyBee.png';
 
 class AchieverCard extends Component {
 
@@ -10,9 +12,9 @@ class AchieverCard extends Component {
             <div className="AchieverCard">
 
                 <div>
-                    <br/>
                     <h4><em>{achiever.name}</em></h4>
-                    <br/>
+                    <Image className="AchieverImage" src={require('../images/HoneyBee.png')} alt="Happy Bee" roundedCircle />
+                    <br/><br/>
                     <p>Points: {achiever.points_earned}</p>
                 </div>
                 
