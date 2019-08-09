@@ -35,7 +35,7 @@ class RewardForm extends Component {
                         <div>
                         <Form.Group controlId="formGroupRewardName">
                             <Form.Label className="FormLabels">Reward Name</Form.Label>
-                            <Form.Control size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter reward name" />
+                            <Form.Control autoFocus size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter reward name" />
                         </Form.Group>
                         </div>
                         <div>

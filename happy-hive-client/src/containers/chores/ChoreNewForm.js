@@ -35,7 +35,7 @@ class ChoreNewForm extends Component {
                         <div>
                         <Form.Group controlId="formGroupChoreName">
                             <Form.Label className="FormLabels">Chore Name</Form.Label>
-                            <Form.Control size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter chore name" />
+                            <Form.Control autoFocus size="sm" as="textarea" rows="1" name="name" value={name} onChange={this.handleOnChange} placeholder="Enter chore name" />
                         </Form.Group>
                         </div>
                         <div>
