@@ -12,7 +12,7 @@ import Chore from './chores/Chore';
 import ChoreNewForm from './chores/ChoreNewForm';
 import Rewards from '../components/rewards/Rewards';
 import Reward from './rewards/Reward';
-import RewardForm from './rewards/RewardForm';
+import RewardForm from './rewards/RewardNewForm';
 import Achievers from '../components/achievers/Achievers';
 
 class App extends Component {
