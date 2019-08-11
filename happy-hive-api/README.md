@@ -1,24 +1,39 @@
-# README
+# ~ Happy Hive ~
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## React/Redux client-side application with a Rails API server
+Final project for Flatiron School by Ryan Evans
 
-Things you may want to cover:
+Happy Hive is a "Chores for Rewards" web application.  It is intended as an application that families can use together.  Parents can add chores that need to be done, children can complete chores and earn points.  Points can then be used to claim rewards, which have been added by parents as incentives.
 
-* Ruby version
+Chores and rewards can be added at any time. Sign in to complete a chore and earn it's points. When you've earned enough points, sign in and claim your reward!
 
-* System dependencies
+Happy Hive is built with a React frontend, using Redux to manage global states, Redux Thunk to make asynchronous modifications to the store, and a Rails API for data persistence. 
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+###Start the Rails API first:
+- From the main project directory, change to the 'happy-hive-api' directory: `cd happy-hive-api`
+- Run `bundle` to install dependencies
+- To create the local database, run migrations: `rake db:migrate`
+- Start the Rails API server on port 3001 (React app will run on port 3000): `rails s -p 3001`
 
-* Services (job queues, cache servers, search engines, etc.)
+###Start the React client-side application:
+- Open a second terminal for running the client-side application
+- From the main project directory, change to the 'happy-hive-client' directory: `cd happy-hive-client`
+- Install the app locally by running: `npm install`
+- Start the React application: `npm start`
+- Node will automatically open http://localhost:3000/ in your browser
 
-* Deployment instructions
 
-* ...
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/ryanwevans/happy-hive. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+
+
+## License
+
+Available as open source under the terms of the **MIT License** (http://opensource.org/licenses/MIT).
