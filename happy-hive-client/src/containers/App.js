@@ -24,6 +24,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(sessionStorage)
         return (
             <Router>
                 <div className="grid App" id="App">

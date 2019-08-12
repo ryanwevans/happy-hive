@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { editAchiever } from '../../actions/achievers';
 import { editChore } from '../../actions/chores';
 
-/* May need to add location.choresProps to use for pulling the chore data using the match.params.id so that the forward/back buttons function correctly */
+// Add validation that a user is signed in, in order for them to complete a chore and earn the points
 
 class Chore extends Component { 
     
@@ -20,7 +20,11 @@ class Chore extends Component {
 
         const handleButtonClick = (event) => {
             event.preventDefault();
-            completeChore();
+            if (sessionStorage.current_user_id) {
+            completeChore()
+            } else {
+                window.alert("You must sign in to complete a chore")
+            }
         }
 
         const completeChore = () => {

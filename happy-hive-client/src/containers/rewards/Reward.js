@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { editAchiever } from '../../actions/achievers';
 import { editReward } from '../../actions/rewards';
 
-/* May need to add location.rewardsProps to use for pulling the reward data using the match.params.id so that the forward/back buttons function correctly */
+// Add validation that a user is signed in, in order for them to claim a reward
 
 class Reward extends Component {
 
