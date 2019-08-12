@@ -21,7 +21,12 @@ class Reward extends Component {
 
         const handleButtonClick = (event) => {
             event.preventDefault();
-            claimReward();
+            // validate a user is signed in in order to claim a reward
+            if (sessionStorage.current_user_id) {
+                claimReward()
+            } else {
+                window.alert("You must sign in before claiming a reward")
+            }
         }
 
         const claimReward = () => {

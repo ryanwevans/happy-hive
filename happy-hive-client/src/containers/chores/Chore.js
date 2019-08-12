@@ -20,8 +20,9 @@ class Chore extends Component {
 
         const handleButtonClick = (event) => {
             event.preventDefault();
+            // validate a user is signed in in order to complete a chore
             if (sessionStorage.current_user_id) {
-            completeChore()
+                completeChore()
             } else {
                 window.alert("You must sign in to complete a chore")
             }
