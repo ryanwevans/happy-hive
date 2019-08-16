@@ -37,43 +37,53 @@ export const clearCurrentAchiever = () => {
 
 //  ** Async Actions **
 export const getAchievers = () => {
-    return dispatch => {
-        return fetch(`${API_URL}/achievers`)
-        .then(response => response.json())
-        .then(achievers => dispatch(fetchAchievers(achievers)))
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/achievers`);
+            const achievers = await response.json();
+            return dispatch(fetchAchievers(achievers));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 
 export const createAchiever = (achiever) => {
-    return dispatch => {
-        return fetch(`${API_URL}/achievers`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({achiever})
-        })
-        .then(response => response.json())
-        .then(achiever => { 
-            dispatch(addAchiever(achiever))
-            setCurrentAchiever(achiever)
-        })
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/achievers`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ achiever })
+            });
+            const achiever = await response.json();
+            dispatch(addAchiever(achiever));
+            setCurrentAchiever(achiever);
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 
 export const editAchiever = (achiever) => {
-    return dispatch => {
-        return fetch(`${API_URL}/achievers/${achiever.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({achiever})
-        })
-        .then(response => response.json())
-        .then(achiever => dispatch(updateAchiever(achiever)))
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/achievers/${achiever.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ achiever })
+            });
+            const achiever = await response.json();
+            return dispatch(updateAchiever(achiever));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
