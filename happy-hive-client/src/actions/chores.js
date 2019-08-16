@@ -39,37 +39,41 @@ export const getChores = () => {
 }
 
 export const createChore = chore => {
-    return dispatch => {
-        return fetch(`${API_URL}/chores`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify( {chore} )
-        })
-        .then(response => response.json())
-        .then(chore => {
-            dispatch(addChore(chore))
-            dispatch(resetChoreFormData())
-        })
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/chores`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ chore })
+            });
+            const chore = await response.json();
+            dispatch(addChore(chore));
+            dispatch(resetChoreFormData());
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 
 export const editChore = chore => {
-    return dispatch => {
-        return fetch(`${API_URL}/chores/${chore.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify( {chore} )
-        })
-        .then(response => response.json())
-        .then(chore => {
-            dispatch(updateChore(chore))
-        })
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/chores/${chore.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ chore })
+            });
+            const chore = await response.json();
+            dispatch(updateChore(chore));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
