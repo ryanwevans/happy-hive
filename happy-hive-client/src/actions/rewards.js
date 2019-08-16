@@ -26,46 +26,54 @@ const updateReward = reward => {
 
 // ** Async Actions
 export const getRewards = () => {
-    return dispatch => {
-        return fetch(`${API_URL}/rewards`)
-            .then(resp => resp.json())
-            .then(rewards => dispatch(fetchRewards(rewards)))
-            .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const resp = await fetch(`${API_URL}/rewards`);
+            const rewards = await resp.json();
+            return dispatch(fetchRewards(rewards));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 
 export const createReward = reward => {
-    return dispatch => {
-        return fetch(`${API_URL}/rewards`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify( {reward} )
-        })
-        .then(response => response.json())
-        .then(reward => {
-            dispatch(addReward(reward))
-            dispatch(resetRewardFormData())
-        })
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/rewards`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ reward })
+            });
+            const reward = await response.json();
+            dispatch(addReward(reward));
+            dispatch(resetRewardFormData());
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
 
 export const editReward = reward => {
-    return dispatch => {
-        return fetch(`${API_URL}/rewards/${reward.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify( {reward} )
-        })
-        .then(response => response.json())
-        .then(reward => {
-            dispatch(updateReward(reward))
-        })
-        .catch(error => console.log(error))
+    return async dispatch => {
+        try {
+            const response = await fetch(`${API_URL}/rewards/${reward.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ reward })
+            });
+            const reward = await response.json();
+            dispatch(updateReward(reward));
+        }
+        catch (error) {
+            return console.log(error);
+        }
     }
 }
