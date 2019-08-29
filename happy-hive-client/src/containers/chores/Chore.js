@@ -6,12 +6,9 @@ import { withRouter } from 'react-router-dom';
 import { editAchiever } from '../../actions/achievers';
 import { editChore } from '../../actions/chores';
 
-// Add validation that a user is signed in, in order for them to complete a chore and earn the points
-
 class Chore extends Component { 
     
     render() {
-        // I pass 'achievers' as props through the Route in App, but it is 'undefined' here (why?), so I am passing 'achievers' as 'location' props.
         const { choreProps, achieversProps } = this.props.location;
         const chore = choreProps;
         const achievers = achieversProps;

@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { createReward } from '../../actions/rewards';
 import { updateRewardFormData } from '../../actions/rewardForm';
 
-class RewardForm extends Component {
+class RewardNewForm extends Component {
 
     handleOnChange = event => {
         const {name, value} = event.target;
@@ -70,4 +70,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { createReward, updateRewardFormData })(withRouter(RewardForm));
+export default connect(mapStateToProps, { createReward, updateRewardFormData })(withRouter(RewardNewForm));

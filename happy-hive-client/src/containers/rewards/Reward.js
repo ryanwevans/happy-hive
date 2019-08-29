@@ -7,13 +7,10 @@ import Button from 'react-bootstrap/Button';
 import { editAchiever } from '../../actions/achievers';
 import { editReward } from '../../actions/rewards';
 
-// Add validation that a user is signed in, in order for them to claim a reward
-
 class Reward extends Component {
     
     render() {
         console.log(this.props)
-        // I pass 'achievers' as props through the Route in App, but it is 'undefined' here (why?), so I am passing 'achievers' as 'location' props.
         const { rewardProps, achieversProps } = this.props.location;
         const reward = rewardProps;
         const achievers = achieversProps;

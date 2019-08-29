@@ -12,7 +12,7 @@ import Chore from './chores/Chore';
 import ChoreNewForm from './chores/ChoreNewForm';
 import Rewards from '../components/rewards/Rewards';
 import Reward from './rewards/Reward';
-import RewardForm from './rewards/RewardNewForm';
+import RewardNewForm from './rewards/RewardNewForm';
 import Achievers from '../components/achievers/Achievers';
 
 class App extends Component {
@@ -93,7 +93,7 @@ class App extends Component {
 
                             {/* Rewards Routes */}
                                 {/* ** Rename RewardForm to RewardNewForm ** */}
-                            <Route exact path='/rewards/new' render={ () => (<RewardForm />) } />
+                            <Route exact path='/rewards/new' render={ () => (<RewardNewForm />) } />
 
                             <Route exact path='/rewards/:id'
                                 render={ (routerProps) => (
@@ -116,7 +116,6 @@ class App extends Component {
     }
 }
 
-// ** Remove references to 'current_achiever' if stay with using sessionStorage **
 const mapStateToProps = state => {
     return ({
         chores: state.chores,
