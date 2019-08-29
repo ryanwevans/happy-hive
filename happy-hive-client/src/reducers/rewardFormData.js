@@ -1,7 +1,7 @@
 const initialState = {
     name: '',
     description: '',
-    value: null,
+    value: '',
     claimed: false,
     claimed_by: ''
 }
