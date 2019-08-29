@@ -59,9 +59,9 @@ export const createAchiever = (achiever) => {
                 },
                 body: JSON.stringify({ achiever })
             });
-            const achiever = await response.json();
-            dispatch(addAchiever(achiever));
-            setCurrentAchiever(achiever);
+            const newAchiever = await response.json();
+            dispatch(addAchiever(newAchiever));
+            setCurrentAchiever(newAchiever);
         }
         catch (error) {
             return console.log(error);
@@ -79,8 +79,8 @@ export const editAchiever = (achiever) => {
                 },
                 body: JSON.stringify({ achiever })
             });
-            const achiever = await response.json();
-            return dispatch(updateAchiever(achiever));
+            const updatedAchiever = await response.json();
+            return dispatch(updateAchiever(updatedAchiever));
         }
         catch (error) {
             return console.log(error);

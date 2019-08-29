@@ -48,8 +48,8 @@ export const createChore = chore => {
                 },
                 body: JSON.stringify({ chore })
             });
-            const chore = await response.json();
-            dispatch(addChore(chore));
+            const newChore = await response.json();
+            dispatch(addChore(newChore));
             dispatch(resetChoreFormData());
         }
         catch (error) {
@@ -69,8 +69,8 @@ export const editChore = chore => {
                 },
                 body: JSON.stringify({ chore })
             });
-            const chore = await response.json();
-            dispatch(updateChore(chore));
+            const updatedChore = await response.json();
+            dispatch(updateChore(updatedChore));
         }
         catch (error) {
             return console.log(error);

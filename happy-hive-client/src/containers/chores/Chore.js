@@ -58,6 +58,7 @@ class Chore extends Component {
     }
 }
 
+
 const mapStateToProps = state => {
     return({
         achievers: state.achievers.achievers

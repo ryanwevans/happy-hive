@@ -48,8 +48,8 @@ export const createReward = reward => {
                 },
                 body: JSON.stringify({ reward })
             });
-            const reward = await response.json();
-            dispatch(addReward(reward));
+            const newReward = await response.json();
+            dispatch(addReward(newReward));
             dispatch(resetRewardFormData());
         }
         catch (error) {
@@ -69,8 +69,8 @@ export const editReward = reward => {
                 },
                 body: JSON.stringify({ reward })
             });
-            const reward = await response.json();
-            dispatch(updateReward(reward));
+            const updatedReward = await response.json();
+            dispatch(updateReward(updatedReward));
         }
         catch (error) {
             return console.log(error);
