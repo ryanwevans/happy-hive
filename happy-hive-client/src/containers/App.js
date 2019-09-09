@@ -14,6 +14,7 @@ import Rewards from '../components/rewards/Rewards';
 import Reward from './rewards/Reward';
 import RewardNewForm from './rewards/RewardNewForm';
 import Achievers from '../components/achievers/Achievers';
+import ClaimedRewards from '../components/rewards/ClaimedRewards';
 
 class App extends Component {
 
@@ -95,7 +96,7 @@ class App extends Component {
                                 {/* ** Rename RewardForm to RewardNewForm ** */}
                             <Route exact path='/rewards/new' render={ () => (<RewardNewForm />) } />
                             
-                            <Route exact path='/rewards/claimed' render={ () => (<ClaimedRewards />) } />
+                            <Route exact path='/rewards/claimed' render={ () => (<ClaimedRewards rewards={this.props.rewards} />) } />
 
                             <Route exact path='/rewards/:id'
                                 render={ (routerProps) => (

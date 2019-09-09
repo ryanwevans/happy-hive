@@ -9,6 +9,7 @@ class Rewards extends Component {
             <div className="RewardCardContainer">
                 <h3 className="RewardsPageTitle">Rewards</h3>
                 <Button variant="outline-info" size="sm" href="/rewards/new">New Reward</Button>
+                <br/><br/>
                 <Button variant="outline-info" size="sm" href="/rewards/claimed">View Claimed Rewards</Button>
                 <br/>
                 <br/>
