@@ -94,6 +94,8 @@ class App extends Component {
                             {/* Rewards Routes */}
                                 {/* ** Rename RewardForm to RewardNewForm ** */}
                             <Route exact path='/rewards/new' render={ () => (<RewardNewForm />) } />
+                            
+                            <Route exact path='/rewards/claimed' render={ () => (<ClaimedRewards />) } />
 
                             <Route exact path='/rewards/:id'
                                 render={ (routerProps) => (

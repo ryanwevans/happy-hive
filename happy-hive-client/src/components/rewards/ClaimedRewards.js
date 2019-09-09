@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
-import RewardCard from './RewardCard';
+import ClaimedRewardCard from './ClaimedRewardCard';
 
 class Rewards extends Component {
 
@@ -8,15 +7,13 @@ class Rewards extends Component {
         return (
             <div className="RewardCardContainer">
                 <h3 className="RewardsPageTitle">Rewards</h3>
-                <Button variant="outline-info" size="sm" href="/rewards/new">New Reward</Button>
-                <Button variant="outline-info" size="sm" href="/rewards/claimed">View Claimed Rewards</Button>
                 <br/>
                 <br/>
-                { this.props.rewards.filter( reward => reward.claimed === false )
+                { this.props.rewards.filter( reward => reward.claimed === true )
                     .map( reward => {
                         return (
                             <div key={reward.id}>
-                                <RewardCard reward={reward} rewards={this.props.rewards} achievers={this.props.achievers} />
+                                <ClaimedRewardCard reward={reward} achievers={this.props.achievers} />
                             </div>
                         )
                 }) }
