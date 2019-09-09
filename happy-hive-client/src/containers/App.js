@@ -36,7 +36,7 @@ class App extends Component {
                             />
 
                         <Switch>
-                            
+                            {/* index page 'hive' hexagons */}
                             <Route exact path='/' render={ () => 
                                 <React.Fragment>
                                     <div>
@@ -93,7 +93,6 @@ class App extends Component {
 
 
                             {/* Rewards Routes */}
-                                {/* ** Rename RewardForm to RewardNewForm ** */}
                             <Route exact path='/rewards/new' render={ () => (<RewardNewForm />) } />
                             
                             <Route exact path='/rewards/claimed' render={ () => (<ClaimedRewards rewards={this.props.rewards} />) } />
@@ -112,7 +111,6 @@ class App extends Component {
 
                         </Switch>
                     </div>
-                        {/* <div className="span-col-2">Claimed Rewards</div> */}
                 </div>
             </Router>
         )

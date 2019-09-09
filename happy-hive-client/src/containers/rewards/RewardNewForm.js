@@ -9,14 +9,14 @@ import { createReward } from '../../actions/rewards';
 import { updateRewardFormData } from '../../actions/rewardForm';
 
 class RewardNewForm extends Component {
-
+    // Display form contents as typed
     handleOnChange = event => {
         const {name, value} = event.target;
         const currentRewardFormData = Object.assign({}, this.props.rewardFormData, 
             {[name]: value});
         this.props.updateRewardFormData(currentRewardFormData);
     }
-    
+    // Handle submission of new Reward form
     handleOnSubmit = event => {
         event.preventDefault();
         this.props.createReward(this.props.rewardFormData);

@@ -17,6 +17,7 @@ class Reward extends Component {
 
         const { editAchiever, editReward, history } = this.props
 
+        // Handle click of 'Claim Reward' button
         const handleButtonClick = (event) => {
             event.preventDefault();
             // validate a user is signed in in order to claim a reward
@@ -27,6 +28,7 @@ class Reward extends Component {
             }
         }
 
+        // Execute steps of claiming a reward: reduce claimant's points earned, assign claimant's name to reward, change 'claimed' attribute of Reward to 'true'
         const claimReward = () => {
              // comparison with '==' because current_user_id is a string, achiever.id is integer
             const rewardClaimer = achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)

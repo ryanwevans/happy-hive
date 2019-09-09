@@ -16,6 +16,7 @@ class Chore extends Component {
         const { editAchiever, editChore, history } = this.props;
         console.log(this.props)
 
+        // Handle click of 'Complete' button
         const handleButtonClick = (event) => {
             event.preventDefault();
             // validate a user is signed in in order to complete a chore
@@ -26,6 +27,7 @@ class Chore extends Component {
             }
         }
 
+        // Execute steps of completing a chore: increase claimant's points earned, change 'complete' attribute of Chore to 'true'
         const completeChore = () => {
             // comparison with '==' because current_user_id is a string, achiever.id is integer
             const choreCompleter = achievers.filter( achiever => achiever.id == sessionStorage.current_user_id)

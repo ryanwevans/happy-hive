@@ -9,14 +9,14 @@ import { createChore } from '../../actions/chores'
 import { updateChoreFormData } from '../../actions/choreForm'
 
 class ChoreNewForm extends Component {
-
+    // Display form contents as typed
     handleOnChange = event => {
         const {name, value} = event.target;
         const currentChoreFormData = Object.assign({}, this.props.choreFormData, 
             {[name]: value});
         this.props.updateChoreFormData(currentChoreFormData);
     }
-    
+    // Handle submission of new Chore form
     handleOnSubmit = event => {
         event.preventDefault();
         this.props.createChore(this.props.choreFormData);
