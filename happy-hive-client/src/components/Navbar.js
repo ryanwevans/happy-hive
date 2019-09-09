@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 
 const NavBar = (props) => {
-    
+    // Determine whether the name entered is already in the database
     const checkForAchiever = (name) => {
         const isAchiever = props.achievers.find( achiever => achiever.name === name)
         if (isAchiever && isAchiever.name.length > 0) {
@@ -17,6 +17,7 @@ const NavBar = (props) => {
         } return false
     }
 
+    // Handle submission of sign-in form; sign-in user if exists in db, or add to db and sign-in if not already in db
     const handleOnSubmit = (event) => {
         event.preventDefault();
         const nameInput = event.target.elements.name.value;
@@ -32,6 +33,7 @@ const NavBar = (props) => {
         props.history.push('/chores')
     }
 
+    // Handle click of 'logout' button; clear sessionStorage
     const handleOnLogout = event => {
         event.preventDefault();
         sessionStorage.clear();
@@ -42,13 +44,11 @@ const NavBar = (props) => {
         <Navbar fixed="top" bg="dark" variant="dark" size="xs" style={{ height: '74px', minWidth: '716px' }}>
 
             <Navbar.Brand className="HappyHiveBrand" href="/">Happy Hive</Navbar.Brand>
-
+            {/* Main top bar navigation links */}
             <Navbar size="xs" className="mr-auto" style={{ /*width: '60%'*/ }}>
                 <NavLink style={{ marginRight: '20px' }} to='/chores'>Chores</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/rewards'>Rewards</NavLink>
                 <NavLink style={{ marginRight: '20px' }} to='/achievers'>Achievers</NavLink>
-                {/* <NavLink style={{ marginRight: '20px' }} to='/chores/new'><em>Add Chore</em></NavLink>
-                <NavLink style={{ marginRight: '20px' }} to='/rewards/new'><em>Add Reward</em></NavLink> */}
             </Navbar>
              
             {/* Load 'sign in' form or display signed in user and 'log out' button */}

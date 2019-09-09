@@ -5,6 +5,7 @@ import RewardCard from './RewardCard';
 class Rewards extends Component {
 
     render() {
+        const { rewards, achievers } = this.props
         return (
             <div className="RewardCardContainer">
                 <h3 className="RewardsPageTitle">Rewards</h3>
@@ -13,11 +14,11 @@ class Rewards extends Component {
                 <Button variant="outline-info" size="sm" href="/rewards/claimed">View Claimed Rewards</Button>
                 <br/>
                 <br/>
-                { this.props.rewards.filter( reward => reward.claimed === false )
+                { rewards.filter( reward => reward.claimed === false )
                     .map( reward => {
                         return (
                             <div key={reward.id}>
-                                <RewardCard reward={reward} rewards={this.props.rewards} achievers={this.props.achievers} />
+                                <RewardCard reward={reward} rewards={rewards} achievers={achievers} />
                             </div>
                         )
                 }) }
