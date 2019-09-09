@@ -6,7 +6,7 @@ class Rewards extends Component {
     render() {
         return (
             <div className="RewardCardContainer">
-                <h3 className="RewardsPageTitle">Rewards</h3>
+                <h3 className="RewardsPageTitle">Claimed Rewards</h3>
                 <br/>
                 <br/>
                 { this.props.rewards.filter( reward => reward.claimed === true )

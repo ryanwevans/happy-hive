@@ -40,6 +40,7 @@ class Reward extends Component {
                 sessionStorage.current_user_points = updatedAchiever.points_earned
 
                 reward.claimed = true
+                reward.claimed_by = updatedAchiever.name
                 editReward(reward)
 
                 history.push('/rewards')
