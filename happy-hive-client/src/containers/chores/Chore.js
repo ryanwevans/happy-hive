@@ -14,6 +14,7 @@ class Chore extends Component {
         const achievers = achieversProps;
 
         const { editAchiever, editChore, history } = this.props;
+        console.log(this.props)
 
         const handleButtonClick = (event) => {
             event.preventDefault();
