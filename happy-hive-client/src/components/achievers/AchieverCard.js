@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Achievers.css';
 import Image from 'react-bootstrap/Image';
-// import './HappyBee.png';
 
 class AchieverCard extends Component {
 
